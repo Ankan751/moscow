@@ -37,7 +37,7 @@ const AboutHeroSection: React.FC = () => {
           </motion.p>
           <h1 className="font-fraunces text-[48px] sm:text-[56px] leading-tight text-white font-bold mb-6 drop-shadow-xl">
             Redefining Real Estate with<br />
-            <span className="font-light italic text-[#BAE6FD]">Intelligence & Elegance</span>
+            <span className="font-light italic text-[#E8E2DA]">Intelligence & Elegance</span>
           </h1>
 
           {/* Luxury Divider */}
@@ -45,7 +45,7 @@ const AboutHeroSection: React.FC = () => {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#38BDF8] to-transparent mx-auto mb-8" 
+            className="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent mx-auto mb-8" 
           />
 
           <motion.p 

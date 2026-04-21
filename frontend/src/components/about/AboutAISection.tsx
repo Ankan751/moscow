@@ -15,60 +15,8 @@ const AboutAISection: React.FC = () => {
     <section className="bg-[#F2EFE9] border-t border-[#E6E0DA] py-24">
       <div className="max-w-[1280px] mx-auto px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left - Content */}
-          <div>
-            {/* Label */}
-            <div className="mb-6">
-              <p className="font-space-mono text-xs text-[#38BDF8] uppercase tracking-[1.2px]">
-                The Engine
-              </p>
-            </div>
-
-            {/* Headline */}
-            <h2 className="mb-6">
-
-              <span className="font-fraunces font-light italic text-5xl leading-[48px] text-[#38BDF8] block">
-                Property Intelligence
-              </span>
-            </h2>
-
-            {/* Description */}
-            <p className="font-red-hat font-extralight text-lg leading-[29.25px] text-[#4b5563] mb-8">
-              Our proprietary algorithms analyze millions of data points—from sun
-              patterns and neighborhood noise levels to architectural styles and
-              historical value trends—to present you with opportunities others
-              miss.
-            </p>
-
-            {/* Features List */}
-            <ul className="space-y-5 mb-8">
-              {features.map((feature, index) => (
-                <li key={index} className="flex items-center gap-3">
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <Check className="w-5 h-5 text-[#38BDF8]" />
-                  </div>
-                  <span className="font-red-hat font-extralight text-base text-[#221410]">
-                    {feature}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            {/* Link */}
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 border-b border-[#221410] pb-1 group hover:border-[#38BDF8] transition-colors"
-            >
-              <span className="font-space-mono text-sm text-[#221410] group-hover:text-[#38BDF8] transition-colors">
-                Learn about our Tech
-              </span>
-
-              <ArrowRight className="w-4 h-4 text-[#221410] group-hover:text-[#38BDF8] transition-colors" />
-            </a>
-          </div>
-
-          {/* Right - Image with AI Card Overlay */}
-          <div className="relative">
+          {/* Left - Image with AI Card Overlay */}
+          <div className="relative order-2 lg:order-1">
             {/* Background overlay (rotated) */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-[592px] h-[732px] bg-[rgba(230,224,218,0.5)] rounded-lg rotate-2" />
@@ -86,7 +34,7 @@ const AboutAISection: React.FC = () => {
               <div className="absolute bottom-6 left-6 right-6 backdrop-blur-md bg-white/90 border border-[#E6E0DA] rounded p-4 flex items-center gap-4">
                 {/* Icon */}
                 <div className="w-10 h-[46px] bg-[rgba(236,70,19,0.1)] rounded-full flex items-center justify-center flex-shrink-0">
-                  <Sparkles className="w-6 h-6 text-[#38BDF8]" />
+                  <Sparkles className="w-6 h-6 text-[#C5A059]" />
                 </div>
 
                 {/* Content */}
@@ -100,6 +48,57 @@ const AboutAISection: React.FC = () => {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Right - Content */}
+          <div className="order-1 lg:order-2">
+            {/* Label */}
+            <div className="mb-6">
+              <p className="font-space-mono text-xs text-[#C5A059] uppercase tracking-[1.2px]">
+                The Engine
+              </p>
+            </div>
+
+            {/* Headline */}
+            <h2 className="mb-6">
+              <span className="font-fraunces font-light italic text-5xl leading-[48px] text-[#C5A059] block">
+                Property Intelligence
+              </span>
+            </h2>
+
+            {/* Description */}
+            <p className="font-red-hat font-extralight text-lg leading-[29.25px] text-[#4b5563] mb-8">
+              Our proprietary algorithms analyze millions of data points—from sun
+              patterns and neighborhood noise levels to architectural styles and
+              historical value trends—to present you with opportunities others
+              miss.
+            </p>
+
+            {/* Features List */}
+            <ul className="space-y-5 mb-8">
+              {features.map((feature, index) => (
+                <li key={index} className="flex items-center gap-3">
+                  <div className="w-6 h-6 flex items-center justify-center">
+                    <Check className="w-5 h-5 text-[#C5A059]" />
+                  </div>
+                  <span className="font-red-hat font-extralight text-base text-[#221410]">
+                    {feature}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Link */}
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 border-b border-[#221410] pb-1 group hover:border-[#C5A059] transition-colors"
+            >
+              <span className="font-space-mono text-sm text-[#221410] group-hover:text-[#C5A059] transition-colors">
+                Learn about our Tech
+              </span>
+
+              <ArrowRight className="w-4 h-4 text-[#221410] group-hover:text-[#C5A059] transition-colors" />
+            </a>
           </div>
         </div>
       </div>

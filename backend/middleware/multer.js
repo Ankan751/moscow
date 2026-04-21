@@ -4,9 +4,22 @@ import path from "path";
 import crypto from "crypto";
 
 // Auto-create uploads directory if missing
-const uploadDir = path.join(process.cwd(), "uploads");
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir, { recursive: true });
+let uploadDir = path.join(process.cwd(), "uploads");
+
+try {
+    if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir, { recursive: true });
+    }
+} catch (error) {
+    console.warn(`Warning: Could not create uploads directory at ${uploadDir}. Falling back to /tmp/uploads.`);
+    uploadDir = path.join("/tmp", "uploads");
+    if (!fs.existsSync(uploadDir)) {
+        try {
+            fs.mkdirSync(uploadDir, { recursive: true });
+        } catch (tmpError) {
+            console.error(`Critical Error: Could not create fallback uploads directory at ${uploadDir}.`, tmpError);
+        }
+    }
 }
 
 // Secure filename generation

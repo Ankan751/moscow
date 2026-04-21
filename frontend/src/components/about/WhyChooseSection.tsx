@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Feather, Users, MapPin, ShieldCheck, Building2, HardHat, Star } from 'lucide-react';
+import { cn } from '../../lib/utils';
 
 const WhyChooseSection: React.FC = () => {
   const reasons = [
@@ -57,11 +58,11 @@ const WhyChooseSection: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20 max-w-3xl mx-auto"
         >
-          <p className="font-red-hat text-xs uppercase tracking-[4px] text-[#38BDF8] mb-4 font-bold">
+          <p className="font-red-hat text-xs uppercase tracking-[4px] text-[#C5A059] mb-4 font-bold">
             Hanumant Properties
           </p>
           <h2 className="font-fraunces text-3xl sm:text-4xl font-bold text-[#1F3A5F] mb-6"> Building Your Vision with Confidence </h2>
-          <div className="w-12 h-[2px] bg-[#38BDF8] mx-auto mb-8" />
+          <div className="w-12 h-[2px] bg-[#C5A059] mx-auto mb-8" />
           <p className="font-red-hat text-base text-[#4B5563] leading-relaxed">
             Hanumant Properties is a trusted Dehradun-based real estate firm specializing in premium construction land and end-to-end property solutions. With a strong reputation built on quality and reliability, we cater to a wide range of needs—from residential homes to high-return commercial investments.
           </p>
@@ -73,22 +74,32 @@ const WhyChooseSection: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12"
         >
           {reasons.map((item, index) => (
-            <motion.div variants={itemVariants} key={index} className="flex flex-col items-center text-center group cursor-pointer p-6 rounded-2xl hover:bg-white hover:shadow-xl hover:shadow-[#1F3A5F]/5 transition-all duration-500 border border-transparent hover:border-[#1F3A5F]/5">
-              {/* Icon Circle */}
-              <div className="w-20 h-20 rounded-full bg-[#FAF8F4] border border-[#38BDF8]/20 flex items-center justify-center mb-6 group-hover:bg-[#38BDF8] group-hover:border-[#38BDF8] group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[#38BDF8]/30 transition-all duration-500">
-                <item.icon className="w-8 h-8 text-[#1F3A5F] group-hover:text-white transition-colors duration-500" strokeWidth={1.5} />
+            <motion.div 
+              variants={itemVariants} 
+              key={index} 
+              className={cn(
+                "flex flex-col items-start text-left group cursor-pointer p-8 rounded-3xl transition-all duration-500 border border-[#1F3A5F]/5 bg-white/50 backdrop-blur-sm hover:bg-white hover:shadow-[0_20px_50px_rgba(31,58,95,0.08)] hover:-translate-y-2",
+                index % 2 === 1 ? "lg:translate-y-8" : ""
+              )}
+            >
+              {/* Icon Container with Glass Effect */}
+              <div className="w-16 h-16 rounded-2xl bg-[#C5A059]/10 border border-[#C5A059]/20 flex items-center justify-center mb-8 group-hover:bg-[#C5A059] group-hover:border-[#C5A059] transition-all duration-500 shadow-sm">
+                <item.icon className="w-7 h-7 text-[#C5A059] group-hover:text-white transition-colors duration-500" strokeWidth={1.5} />
               </div>
 
-              {/* Title */}
-              <h3 className="font-red-hat font-bold text-lg text-[#1F3A5F] group-hover:text-[#38BDF8] transition-colors mb-3 tracking-[2px] uppercase">
-                {item.title}
-              </h3>
+              {/* Title with Underline Effect */}
+              <div className="relative mb-4">
+                <h3 className="font-red-hat font-bold text-base text-[#1F3A5F] tracking-[2px] uppercase">
+                  {item.title}
+                </h3>
+                <div className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#C5A059] transition-all duration-500 group-hover:w-full" />
+              </div>
 
               {/* Description */}
-              <p className="font-red-hat font-medium text-sm text-[#4B5563] leading-relaxed max-w-[300px]">
+              <p className="font-red-hat font-medium text-sm text-[#4B5563] leading-relaxed">
                 {item.description}
               </p>
             </motion.div>

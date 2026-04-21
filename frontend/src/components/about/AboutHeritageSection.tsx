@@ -17,11 +17,11 @@ const AboutHeritageSection: React.FC = () => {
             className="relative"
           >
             {/* Elegant Luxury Frame */}
-            <div className="absolute -inset-4 border border-[#38BDF8]/30 rounded-2xl md:-inset-6 translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4 -z-10 bg-[#FAF8F4]" />
+            <div className="absolute -inset-4 border border-[#C5A059]/30 rounded-2xl md:-inset-6 translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4 -z-10 bg-[#FAF8F4]" />
             <div className="border border-[#1F3A5F]/10 rounded-2xl p-2 bg-white shadow-xl relative z-10">
               <div className="relative h-[400px] sm:h-[600px] lg:h-[700px] rounded-xl overflow-hidden">
                 <img
-                  src="https://res.cloudinary.com/dp4xt0bve/image/upload/f_webp,q_auto/v1776496833/about_us1.jpg"
+                  src="https://res.cloudinary.com/diidko3fa/image/upload/f_webp,q_auto/v1776780569/filip-rankovic-grobgaard-tmwHp7-5LP4-unsplash_hmzxdk.jpg"
                   alt="Architectural detail"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
@@ -66,7 +66,7 @@ const AboutHeritageSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
-              className="border-l-[3px] border-[#38BDF8] pl-6 mb-10"
+              className="border-l-[3px] border-[#C5A059] pl-6 mb-10"
             >
               <p className="font-fraunces italic text-2xl leading-relaxed text-[#1F3A5F]">
                 "We believe finding a home should be inspiring,
