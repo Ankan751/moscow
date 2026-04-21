@@ -1,0 +1,68 @@
+{
+    "property":  [
+                     {
+                         "_id":  "69de1d9ab19ab9436c22f615",
+                         "title":  "heehe",
+                         "location":  "nitj",
+                         "price":  6000,
+                         "image":  [
+
+                                   ],
+                         "beds":  94,
+                         "baths":  999,
+                         "sqft":  99998,
+                         "type":  "House",
+                         "availability":  "buy",
+                         "description":  "behen ki lori",
+                         "amenities":  [
+
+                                       ],
+                         "phone":  "8822108245",
+                         "googleMapLink":  "https://maps.app.goo.gl/uuZts1XEHGh1cLfK7",
+                         "status":  "active",
+                         "postedBy":  null,
+                         "rejectionReason":  "",
+                         "expiresAt":  null,
+                         "createdAt":  "2026-04-14T10:57:30.185Z",
+                         "updatedAt":  "2026-04-14T10:57:30.185Z",
+                         "__v":  0
+                     },
+                     {
+                         "_id":  "69de1cc6b19ab9436c22f603",
+                         "title":  "BCD",
+                         "location":  "BANDRA WEST",
+                         "price":  690000,
+                         "image":  [
+
+                                   ],
+                         "beds":  4,
+                         "baths":  3,
+                         "sqft":  1199,
+                         "type":  "House",
+                         "availability":  "buy",
+                         "description":  "ABCD",
+                         "amenities":  [
+                                           "Landscaped Garden",
+                                           "CCTV Surveillance"
+                                       ],
+                         "phone":  "8822108245",
+                         "googleMapLink":  "",
+                         "status":  "active",
+                         "postedBy":  null,
+                         "rejectionReason":  "",
+                         "expiresAt":  null,
+                         "createdAt":  "2026-04-14T10:53:58.794Z",
+                         "updatedAt":  "2026-04-14T11:09:24.906Z",
+                         "__v":  1
+                     }
+                 ],
+    "success":  true,
+    "pagination":  {
+                       "currentPage":  1,
+                       "totalPages":  1,
+                       "totalProperties":  2,
+                       "hasNextPage":  false,
+                       "hasPreviousPage":  false,
+                       "limit":  20
+                   }
+}
