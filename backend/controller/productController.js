@@ -228,12 +228,12 @@ const listproperty = async (req, res) => {
         }
 
         // Parallel execution for count and fetch to improve throughput
-        // Projection limits the heavy fields and truncates the image array to 1 element (thumbnail)
-        const [property, totalProperties] = await Promise.all([
+        // Projection limits the heavy fields. We handle image slicing in JS to avoid $slice errors on non-array fields.
+        const [propertyRaw, totalProperties] = await Promise.all([
             Property.find(query, {
                 title: 1, location: 1, city: 1, price: 1, beds: 1, bhk: 1, baths: 1,
                 sqft: 1, area_sqft: 1, type: 1, length: 1, breadth: 1, facing: 1, 
-                locality: 1, tags: 1, image: { $slice: 1 }, status: 1,
+                locality: 1, tags: 1, image: 1, status: 1,
                 instagramLink: 1, youtubeLink: 1
             })
                 .sort({ createdAt: -1 })
@@ -242,6 +242,12 @@ const listproperty = async (req, res) => {
                 .lean(),
             Property.countDocuments(query)
         ]);
+
+        // Safely truncate image arrays to 1 element for thumbnails in the list view
+        const property = propertyRaw.map(p => ({
+            ...p,
+            image: Array.isArray(p.image) ? p.image.slice(0, 1) : (p.image ? [p.image] : [])
+        }));
 
         const totalPages = Math.ceil(totalProperties / limit);
 
@@ -262,8 +268,16 @@ const listproperty = async (req, res) => {
         
         res.json(payload);
     } catch (error) {
-        console.log("Error listing products: ", error);
-        res.status(500).json({ message: "Server Error", success: false });
+        console.error("CRITICAL: Error listing products:", {
+            message: error.message,
+            stack: error.stack,
+            query: req.query
+        });
+        res.status(500).json({ 
+            message: "Internal Server Error", 
+            error: process.env.NODE_ENV === 'development' ? error.message : "Failed to fetch property list",
+            success: false 
+        });
     }
 };
 
