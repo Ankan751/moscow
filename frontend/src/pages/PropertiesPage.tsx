@@ -217,7 +217,7 @@ const PropertiesPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#f8fdff] min-h-screen overflow-x-hidden relative">
+    <div className="bg-white min-h-screen overflow-x-hidden relative">
       <Navbar />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 flex flex-col lg:flex-row items-start gap-8 py-0 lg:py-8">
@@ -228,10 +228,10 @@ const PropertiesPage: React.FC = () => {
             viewMode={viewMode}
             onViewModeChange={handleViewChange}
             onSortChange={handleSortChange}
-            onMobileFilterOpen={() => setMobileFilterOpen(true)}
             onSearch={handleSearch}
             searchValue={locationSearch}
             isFilterOpen={mobileFilterOpen}
+            colorTheme="gold"
           />
 
           <div className={`min-h-[600px] relative transition-opacity duration-300 ${loading ? 'opacity-60 pointer-events-none' : 'opacity-100'}`}>
@@ -264,7 +264,7 @@ const PropertiesPage: React.FC = () => {
 
             {!error && properties.length > 0 && (
               <div className="flex flex-col mb-12">
-                <PropertiesGrid properties={properties} viewMode={viewMode} />
+                <PropertiesGrid properties={properties} viewMode={viewMode} colorTheme="gold" />
 
                 {page < totalPages && (
                   <div ref={lastElementRef} className="flex justify-center mt-8 mb-4 h-10">
@@ -287,9 +287,9 @@ const PropertiesPage: React.FC = () => {
         >
           <div className="relative group/icon">
             {/* Ambient Glow */}
-            <div className="absolute inset-0 bg-[#38BDF8]/40 blur-md rounded-full group-hover:blur-lg transition-all duration-500" />
+            <div className="absolute inset-0 bg-[#C5A059]/40 blur-md rounded-full group-hover:blur-lg transition-all duration-500" />
             
-            <span className="relative w-7 h-7 flex items-center justify-center bg-gradient-to-br from-[#E1C288] via-[#38BDF8] to-[#0EA5E9] rounded-full border border-white/20 shadow-inner group-hover:rotate-[360deg] transition-transform duration-1000 ease-in-out overflow-hidden">
+            <span className="relative w-7 h-7 flex items-center justify-center bg-gradient-to-br from-[#E1C288] via-[#C5A059] to-[#B89345] rounded-full border border-white/20 shadow-inner group-hover:rotate-[360deg] transition-transform duration-1000 ease-in-out overflow-hidden">
               <span className="material-icons text-[14px] text-white drop-shadow-md">tune</span>
               
               {/* Shine Sweep Effect */}

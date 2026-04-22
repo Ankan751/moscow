@@ -20,6 +20,7 @@ interface PropertyCardProps {
   tags?: string[];
   instagramLink?: string;
   youtubeLink?: string;
+  colorTheme?: 'blue' | 'gold';
 }
 
 const PropertyCard: React.FC<PropertyCardProps> = ({
@@ -39,11 +40,15 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
   badge,
   tags = [],
   instagramLink,
-  youtubeLink
+  youtubeLink,
+  colorTheme = 'blue'
 }) => {
+  const accentText = 'text-[#C5A059]';
+  const groupAccentText = 'group-hover:text-black';
+
 
   return (
-    <Link to={`/property/${id}`} className="block group bg-[#FAF8F4] rounded-xl sm:rounded-3xl border border-[#1F3A5F]/5 hover:shadow-2xl hover:shadow-[#38BDF8]/15 transition-all duration-500 overflow-hidden pb-4 sm:pb-5">
+    <Link to={`/property/${id}`} className={`block group bg-[#FAF8F4] rounded-xl sm:rounded-3xl border border-black/5 hover:shadow-2xl transition-all duration-500 overflow-hidden pb-4 sm:pb-5`}>
       {/* Image Container — compact on mobile, full on desktop */}
       <div className="relative overflow-hidden mb-3 sm:mb-5 h-[220px] sm:h-[300px]">
         <img
@@ -83,16 +88,16 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
       {/* Content */}
       <div className="px-4 sm:px-6 space-y-1 sm:space-y-2 relative">
         <div className="flex justify-between items-start gap-2">
-          <h3 className="font-fraunces font-bold text-[15px] sm:text-2xl text-[#1F3A5F] group-hover:text-[#38BDF8] transition-colors truncate flex-1">
+          <h3 className={`font-fraunces font-bold text-[15px] sm:text-2xl text-black ${groupAccentText} transition-colors truncate flex-1`}>
             {name}
           </h3>
-          <span className="font-space-mono font-bold text-base sm:text-xl text-[#38BDF8]">
+          <span className={`font-space-mono font-bold text-base sm:text-xl ${accentText}`}>
             {price}
           </span>
         </div>
 
         {/* Location */}
-        <div className="flex items-center gap-1.5 text-[#4B5563]">
+        <div className="flex items-center gap-1.5 text-black">
           <span className="font-red-hat text-[11px] sm:text-sm font-medium">
             {location}{city ? `, ${city}` : ''}
           </span>
@@ -102,24 +107,24 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         <div className="flex items-center gap-4 sm:gap-5 pt-3">
           {type !== 'Plot' ? (
             <>
-              <div className="flex items-center gap-1.5 text-[#4B5563]">
-                <Bed className="w-4 h-4 text-[#1F3A5F]" />
-                <span className="font-red-hat text-[11px] sm:text-sm font-bold text-[#1F3A5F]">{beds || 0}</span>
+               <div className="flex items-center gap-1.5 text-black">
+                <Bed className="w-4 h-4 text-black" />
+                <span className="font-red-hat text-[11px] sm:text-sm font-bold text-black">{beds || 0}</span>
               </div>
-              <div className="flex items-center gap-1.5 text-[#4B5563]">
-                <Bath className="w-4 h-4 text-[#1F3A5F]" />
-                <span className="font-red-hat text-[11px] sm:text-sm font-bold text-[#1F3A5F]">{baths || 0}</span>
+              <div className="flex items-center gap-1.5 text-black">
+                <Bath className="w-4 h-4 text-black" />
+                <span className="font-red-hat text-[11px] sm:text-sm font-bold text-black">{baths || 0}</span>
               </div>
             </>
           ) : (
-            <div className="flex items-center gap-1.5 text-[#4B5563]">
-              <Move className="w-4 h-4 text-[#1F3A5F]" />
-              <span className="font-red-hat text-[11px] sm:text-sm font-bold text-[#1F3A5F]">{length || 0}x{breadth || 0}</span>
+            <div className="flex items-center gap-1.5 text-black">
+              <Move className="w-4 h-4 text-black" />
+              <span className="font-red-hat text-[11px] sm:text-sm font-bold text-black">{length || 0}x{breadth || 0}</span>
             </div>
           )}
-          <div className="flex items-center gap-1.5 text-[#4B5563]">
-            <Square className="w-4 h-4 text-[#1F3A5F]" />
-            <span className="font-red-hat text-[11px] sm:text-sm font-bold text-[#1F3A5F]">{sqft} sqft</span>
+          <div className="flex items-center gap-1.5 text-black">
+            <Square className="w-4 h-4 text-black" />
+            <span className="font-red-hat text-[11px] sm:text-sm font-bold text-black">{sqft} sqft</span>
           </div>
         </div>
       </div>

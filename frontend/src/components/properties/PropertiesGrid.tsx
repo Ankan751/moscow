@@ -14,10 +14,10 @@ class PropertyErrorBoundary extends Component<{ property: Property, children: Re
   render() {
     if (this.state.hasError) {
       return (
-        <div className="p-4 border border-red-500 bg-[#f5fbff] text-red-700 rounded-lg overflow-auto max-w-full">
+        <div className="p-4 border border-red-500 bg-[#f5fbff] text-black rounded-lg overflow-auto max-w-full">
           <strong>Error rendering property:</strong>
-          <pre className="text-xs">{this.state.error?.toString()}</pre>
-          <pre className="text-xs">{JSON.stringify(this.props.property, null, 2)}</pre>
+          <pre className="text-xs text-black">{this.state.error?.toString()}</pre>
+          <pre className="text-xs text-black">{JSON.stringify(this.props.property, null, 2)}</pre>
         </div>
       );
     }
@@ -28,7 +28,9 @@ class PropertyErrorBoundary extends Component<{ property: Property, children: Re
 interface PropertiesGridProps {
   properties: Property[];
   viewMode?: 'grid' | 'list';
+  colorTheme?: 'blue' | 'gold';
 }
+
 
 const fallbackImages = [
   "https://images.unsplash.com/photo-1622015663381-d2e05ae91b72?w=800&fm=webp&q=80",
@@ -39,7 +41,7 @@ const fallbackImages = [
   "https://images.unsplash.com/photo-1762732793012-8bdab3af00b4?w=800&fm=webp&q=80"
 ];
 
-const PropertiesGrid: React.FC<PropertiesGridProps> = ({ properties, viewMode = 'grid' }) => {
+const PropertiesGrid: React.FC<PropertiesGridProps> = ({ properties, viewMode = 'grid', colorTheme = 'blue' }) => {
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -56,7 +58,7 @@ const PropertiesGrid: React.FC<PropertiesGridProps> = ({ properties, viewMode = 
   };
 
   return (
-    <div className="flex-1 p-1 sm:p-8 bg-[#f5fbff]">
+    <div className="flex-1 p-1 sm:p-8 bg-white">
       {/* Properties Grid */}
       <motion.div
         key={properties.length > 0 ? (properties[0]._id + properties.length) : 'empty'}
@@ -90,6 +92,7 @@ const PropertiesGrid: React.FC<PropertiesGridProps> = ({ properties, viewMode = 
                 tags={property.type ? [property.type] : []}
                 instagramLink={property.instagramLink}
                 youtubeLink={property.youtubeLink}
+                colorTheme={colorTheme}
               />
             </PropertyErrorBoundary>
           </motion.div>
