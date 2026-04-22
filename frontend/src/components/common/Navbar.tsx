@@ -82,50 +82,68 @@ const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Backdrop & Sidebar */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-0 left-0 w-full h-screen bg-white z-[90] lg:hidden flex flex-col items-center justify-center p-8 text-center"
-          >
-            {/* Close Button Inside Menu */}
-            <button
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-[#C5A059]"
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[85] lg:hidden"
+            />
+
+            {/* Sidebar Drawer */}
+            <motion.div
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed top-0 left-0 w-[310px] h-screen bg-white z-[90] lg:hidden flex flex-col p-8 shadow-2xl"
             >
-              <X className="w-8 h-8" />
-            </button>
+              {/* Close Button on the Left */}
+              <button
+                onClick={() => setIsOpen(false)}
+                className="w-10 h-10 flex items-center justify-center text-[#C5A059] mb-12 -ml-2"
+              >
+                <X className="w-8 h-8" />
+              </button>
 
-            <div className="space-y-8 w-full">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.title}
-                  to={link.path}
-                  className="flex items-center justify-center gap-4 group"
-                >
-                  <link.icon className="w-5 h-5 text-[#C5A059]" />
-                  <span className="font-fraunces text-3xl font-bold text-[#C5A059] hover:text-[#C5A059] transition-colors">{link.title}</span>
-                </Link>
-              ))}
-              <div className="pt-12">
-                <Link
-                  to="/properties"
-                  className="block w-full bg-[#C5A059] text-[#1C1B1A] font-red-hat text-sm font-bold uppercase tracking-widest py-5 rounded-2xl shadow-xl"
-                >
-                  View All listings
-                </Link>
+              <div className="flex flex-col gap-8 w-full">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.title}
+                    to={link.path}
+                    className="flex items-center gap-5 group"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-[#C5A059]/10 flex items-center justify-center group-hover:bg-[#C5A059] transition-all duration-300">
+                      <link.icon className="w-5 h-5 text-[#C5A059] group-hover:text-white" />
+                    </div>
+                    <span className="font-fraunces text-2xl font-bold text-[#1a1a1a] group-hover:text-[#C5A059] transition-colors">
+                      {link.title}
+                    </span>
+                  </Link>
+                ))}
+                
+                <div className="pt-8 mt-4 border-t border-gray-100">
+                  <Link
+                    to="/properties"
+                    className="block w-full bg-[#C5A059] text-white font-red-hat text-xs font-black uppercase tracking-[2px] py-5 rounded-xl shadow-lg shadow-[#C5A059]/20 text-center active:scale-[0.98] transition-transform"
+                  >
+                    View All listings
+                  </Link>
+                </div>
               </div>
-            </div>
 
-            {/* Contact Support */}
-            <div className="absolute bottom-12 text-center w-full">
-              <p className="font-red-hat text-xs text-gray-500 uppercase tracking-widest mb-2 opacity-60">Need Assistance?</p>
-              <p className="font-fraunces text-xl font-bold text-[#C5A059]">78190-81887</p>
-            </div>
-          </motion.div>
+              {/* Contact Support */}
+              <div className="mt-auto pt-8 border-t border-gray-100">
+                <p className="font-red-hat text-[10px] text-gray-400 uppercase tracking-widest mb-2 font-bold">Need Assistance?</p>
+                <p className="font-fraunces text-2xl font-bold text-[#C5A059]">78190-81887</p>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>
