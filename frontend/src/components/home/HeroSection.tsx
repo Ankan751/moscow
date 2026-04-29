@@ -18,19 +18,22 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative w-full min-h-[85vh] overflow-hidden flex flex-col justify-between bg-[#F0F7FA]">
-
-      {/* Background Image placed more to the right */}
-      <div className="absolute inset-0 w-full h-full z-0 flex justify-end pointer-events-none">
-        <img
-          src="https://ik.imagekit.io/kceia4cyw/Property/Gemini_Generated_Image_1vblti1vblti1vbl.png?tr=f-webp"
-          alt="Dream Home Background"
-          className="w-full h-full object-contain object-right-top"
-        />
-        {/* Gradient overlay to blend left side without hiding the center */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F0F7FA] via-[#F0F7FA]/50 to-transparent w-full lg:w-[45%]" />
-        {/* Bottom fade for the banner */}
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#FDFBF7] to-transparent" />
+    <section 
+      className="relative w-full sm:min-h-[85vh] min-h-[100svh] overflow-hidden flex flex-col justify-between bg-[#F0F7FA]"
+    >
+      {/* Background Image Container */}
+      <div 
+        className="absolute inset-0 w-full h-full z-0 pointer-events-none sm:bg-contain bg-[length:auto_60%] sm:bg-right-top bg-top opacity-100"
+        style={{ 
+          backgroundImage: "url('https://ik.imagekit.io/kceia4cyw/Property/Gemini_Generated_Image_1vblti1vblti1vbl.png?tr=f-webp')",
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Gradient overlay to blend left side (Hidden on mobile to keep image vibrant) */}
+        <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-[#F0F7FA] via-[#F0F7FA]/50 to-transparent w-full lg:w-[45%]" />
+        
+        {/* Bottom fade to blend with the section background */}
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#F0F7FA] to-transparent" />
       </div>
 
       {/* Main Content */}
@@ -42,7 +45,7 @@ const HeroSection: React.FC = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col items-start pt-10 pb-16 lg:py-0"
+            className="flex flex-col items-start pt-6 sm:pt-10 pb-10 sm:pb-16 lg:py-0"
           >
             <p className="font-red-hat text-[#4CAF50] font-black text-[10px] sm:text-xs tracking-[3px] uppercase mb-4">
               Your Wish. Our Command.
@@ -54,7 +57,7 @@ const HeroSection: React.FC = () => {
               in Delhi
             </h1>
 
-            <p className="font-red-hat text-[#4B5563] text-sm sm:text-base font-medium mb-10 leading-relaxed max-w-md">
+            <p className="hidden sm:block font-red-hat text-[#4B5563] text-sm sm:text-base font-medium mb-10 leading-relaxed max-w-md">
               Verified properties, loan assistance & <br className="hidden sm:block" />
               <span className="text-[#4CAF50] font-bold">0 down payment</span> options.
             </p>
@@ -72,92 +75,92 @@ const HeroSection: React.FC = () => {
         <div className="flex flex-col items-center w-full">
 
           {/* Search Mode Toggles */}
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex items-center gap-2 mb-4 relative z-20 -translate-y-[250px]"
+            className="flex items-center gap-2 mb-4 relative z-20 sm:-translate-y-[250px] -translate-y-24"
           >
-            <button
-              onClick={() => setSearchMode('standard')}
+            <button 
+              onClick={() => setSearchMode('standard')} 
               className={cn(
-                "px-6 py-2.5 rounded-xl backdrop-blur-md border transition-all flex items-center gap-2 text-xs font-bold tracking-widest uppercase",
-                searchMode === 'standard'
-                  ? "bg-white border-white text-[#1A2B49] shadow-xl"
+                "px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl backdrop-blur-md border transition-all flex items-center gap-2 text-[10px] sm:text-xs font-bold tracking-widest uppercase",
+                searchMode === 'standard' 
+                  ? "bg-white border-white text-[#1A2B49] shadow-xl" 
                   : "bg-black/40 border-white/20 text-white/70 hover:bg-black/60"
               )}
             >
-              <Search className={cn("w-3.5 h-3.5", searchMode === 'standard' ? "text-[#4CAF50]" : "text-white/70")} />
+              <Search className={cn("w-3 sm:w-3.5 h-3 sm:h-3.5", searchMode === 'standard' ? "text-[#4CAF50]" : "text-white/70")} />
               Standard
             </button>
-            <button
-              onClick={() => setSearchMode('ai')}
+            <button 
+              onClick={() => setSearchMode('ai')} 
               className={cn(
-                "px-6 py-2.5 rounded-xl backdrop-blur-md border transition-all flex items-center gap-2 text-xs font-bold tracking-widest uppercase",
-                searchMode === 'ai'
-                  ? "bg-white border-white text-[#1A2B49] shadow-xl"
+                "px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl backdrop-blur-md border transition-all flex items-center gap-2 text-[10px] sm:text-xs font-bold tracking-widest uppercase",
+                searchMode === 'ai' 
+                  ? "bg-white border-white text-[#1A2B49] shadow-xl" 
                   : "bg-black/40 border-white/20 text-white/70 hover:bg-black/60"
               )}
             >
-              <Sparkles className={cn("w-3.5 h-3.5", searchMode === 'ai' ? "text-[#4CAF50]" : "text-white/70")} />
+              <Sparkles className={cn("w-3 sm:w-3.5 h-3 sm:h-3.5", searchMode === 'ai' ? "text-[#4CAF50]" : "text-white/70")} />
               AI Finder
-              <span className="bg-[#4CAF50]/20 text-[#4CAF50] text-[8px] px-1.5 py-0.5 rounded-full ml-1">BETA</span>
+              <span className="bg-[#4CAF50]/20 text-[#4CAF50] text-[7px] sm:text-[8px] px-1.5 py-0.5 rounded-full ml-1">BETA</span>
             </button>
           </motion.div>
 
           {/* Search Bar - Glassmorphism style */}
-          <motion.form
+          <motion.form 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             onSubmit={handleSearch}
-            className="w-full max-w-[700px] bg-white/20 backdrop-blur-md rounded-2xl p-2.5 shadow-2xl border border-white/30 flex items-center relative z-20 -translate-y-[250px]"
+            className="w-full max-w-[700px] bg-white/20 backdrop-blur-md rounded-2xl p-1.5 sm:p-2.5 shadow-2xl border border-white/30 flex items-center relative z-20 sm:-translate-y-[250px] -translate-y-24"
           >
-            <div className="flex-1 flex items-center px-4 sm:px-6 gap-4">
+            <div className="flex-1 flex items-center px-3 sm:px-6 gap-2 sm:gap-4">
               {searchMode === 'ai' ? (
-                <Sparkles className="w-5 h-5 text-[#4CAF50]/60" />
+                <Sparkles className="w-4 sm:w-5 h-4 sm:h-5 text-[#4CAF50]/60" />
               ) : (
-                <Search className="w-5 h-5 text-[#4CAF50]/60" />
+                <Search className="w-4 sm:w-5 h-4 sm:h-5 text-[#4CAF50]/60" />
               )}
-              <input
-                type="text"
+              <input 
+                type="text" 
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder={searchMode === 'ai'
-                  ? "Describe your dream home (e.g. '3 BHK near the temple')..."
-                  : "Search by location, project or property name..."
+                placeholder={searchMode === 'ai' 
+                  ? "Describe your dream home..." 
+                  : "Search location, project..."
                 }
-                className="w-full bg-transparent border-none py-5 text-black font-red-hat text-base placeholder:text-black/60 focus:outline-none focus:ring-0 font-bold"
+                className="w-full bg-transparent border-none py-3 sm:py-5 text-black font-red-hat text-sm sm:text-base placeholder:text-black/60 focus:outline-none focus:ring-0 font-bold"
               />
             </div>
-            <button
+            <button 
               type="submit"
-              className="bg-white hover:bg-[#F0FDF4] text-[#1A2B49] px-6 py-4 rounded-xl font-black font-red-hat flex items-center gap-2 transition-all shadow-lg active:scale-95 group"
+              className="bg-white hover:bg-[#F0FDF4] text-[#1A2B49] px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-black font-red-hat flex items-center gap-2 transition-all shadow-lg active:scale-95 group shrink-0"
             >
               {searchMode === 'ai' ? (
-                <Sparkles className="w-4 h-4 text-[#4CAF50] group-hover:animate-pulse" />
+                <Sparkles className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#4CAF50] group-hover:animate-pulse" />
               ) : (
-                <Search className="w-4 h-4 text-[#4CAF50]" />
+                <Search className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#4CAF50]" />
               )}
-              <span className="tracking-widest uppercase text-[10px]">
+              <span className="tracking-widest uppercase text-[8px] sm:text-[10px]">
                 {searchMode === 'ai' ? 'Magic Search' : 'Search'}
               </span>
             </button>
           </motion.form>
-
+          
           {/* Try This Tags */}
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-wrap items-center justify-center gap-3 -mt-[234px] mb-12 relative z-10"
+            className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 sm:-mt-[234px] mt-0 mb-8 sm:mb-12 relative z-10 px-4 sm:translate-y-0 -translate-y-20"
           >
-            <span className="text-white/60 text-[10px] font-bold uppercase tracking-widest mr-2">Try this:</span>
-            {['3 BHK under 50 Lakhs', 'Villa near Bus Stand', 'House in Model Town', 'Plot for investment'].map((tag) => (
-              <button
+            <span className="text-white/60 text-[8px] sm:text-[10px] font-bold uppercase tracking-widest mr-1 sm:mr-2">Try:</span>
+            {['3 BHK under 50 Lakhs', 'Villa near Bus Stand', 'House in Model Town'].map((tag) => (
+              <button 
                 key={tag}
                 onClick={() => setSearchTerm(tag)}
-                className="px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold hover:bg-white hover:border-[#4CAF50] hover:text-[#4CAF50] transition-all"
+                className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/20 backdrop-blur-sm border border-white/20 text-white text-[8px] sm:text-[10px] font-bold hover:bg-white hover:border-[#4CAF50] hover:text-[#4CAF50] transition-all whitespace-nowrap"
               >
                 {tag}
               </button>

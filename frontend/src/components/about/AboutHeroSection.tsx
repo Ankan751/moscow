@@ -33,7 +33,7 @@ const AboutHeroSection: React.FC = () => {
             transition={{ delay: 0.3 }}
             className="font-red-hat text-xs uppercase tracking-[4px] text-white/80 mb-6 font-bold drop-shadow-md"
           >
-            About Get a Dream Home
+            About JINI HOMES
           </motion.p>
           <h1 className="font-fraunces text-[48px] sm:text-[56px] leading-tight text-white font-bold mb-6 drop-shadow-xl">
             Redefining Real Estate with<br />
@@ -45,7 +45,7 @@ const AboutHeroSection: React.FC = () => {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent mx-auto mb-8"
+            className="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#4CAF50] to-transparent mx-auto mb-8"
           />
 
           <motion.p

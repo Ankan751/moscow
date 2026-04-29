@@ -59,12 +59,12 @@ const WhyChooseSection: React.FC = () => {
           className="text-center mb-20 max-w-3xl mx-auto"
         >
           <p className="font-red-hat text-xs uppercase tracking-[4px] text-[#4CAF50] mb-4 font-bold">
-            Get a Dream Home
+            JINI HOMES
           </p>
           <h2 className="font-fraunces text-3xl sm:text-4xl font-bold text-[#1F3A5F] mb-6"> Building Your Vision with Confidence </h2>
           <div className="w-12 h-[2px] bg-[#4CAF50] mx-auto mb-8" />
-          <p className="font-red-hat text-base text-[#4B5563] leading-relaxed">
-            Get a Dream Home is a trusted Dehradun-based real estate firm specializing in premium construction land and end-to-end property solutions. With a strong reputation built on quality and reliability, we cater to a wide range of needs—from residential homes to high-return commercial investments.
+          <p className="font-red-hat text-base text-[#4B5563] leading-relaxed px-4">
+            JINI HOMES is a trusted real estate firm specializing in premium construction land and end-to-end property solutions. With a strong reputation built on quality and reliability, we cater to a wide range of needs—from residential homes to high-return commercial investments.
           </p>
         </motion.div>
 
@@ -99,7 +99,7 @@ const WhyChooseSection: React.FC = () => {
               </div>
 
               {/* Description */}
-              <p className="font-red-hat font-medium text-[9px] sm:text-sm text-[#4B5563] leading-tight sm:leading-relaxed">
+              <p className="font-red-hat font-medium text-[11px] sm:text-sm text-[#4B5563] leading-tight sm:leading-relaxed">
                 {item.description}
               </p>
             </motion.div>
@@ -115,7 +115,7 @@ const WhyChooseSection: React.FC = () => {
           className="mt-20 text-center max-w-2xl mx-auto"
         >
           <p className="font-cormorant italic text-2xl text-[#1F3A5F] leading-relaxed">
-            "At Get a Dream Home, we don’t just sell land—we help you build your vision with confidence and long-term value."
+            "At JINI HOMES, we don’t just sell land—we help you build your vision with confidence and long-term value."
           </p>
         </motion.div>
       </div>
