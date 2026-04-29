@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronRight, Home, Building, Info, MessageCircle, Phone, Sparkles } from 'lucide-react';
+import { Menu, X, ChevronRight, Home, Building, Info, Phone } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,8 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     setIsOpen(false);
-  }, [location]);
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const navLinks = [
     { title: 'Home', path: '/', icon: Home },
@@ -28,120 +29,137 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg h-[65px]' : 'bg-transparent h-[81px]'
-      }`}>
-      <div className="max-w-[1440px] mx-auto h-full px-4 sm:px-8 flex items-center justify-between relative">
-        {/* Brand Logo */}
-        <Link
-          to="/"
-          className="flex items-center gap-3 h-full py-0 lg:static absolute left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0"
+    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+      scrolled 
+        ? 'bg-white/95 backdrop-blur-md shadow-lg h-20' 
+        : 'bg-transparent h-24'
+    }`}>
+      <div className="max-w-[1800px] mx-auto h-full px-4 sm:px-12 flex items-center justify-between relative">
+        
+        {/* Mobile Menu Button - Left Aligned on Mobile */}
+        <button
+          onClick={() => setIsOpen(true)}
+          className="lg:hidden p-2.5 bg-white text-[#1A2B49] rounded-xl shadow-lg active:scale-95 transition-all"
         >
-          <img
-            src="https://ik.imagekit.io/kceia4cyw/Property/WhatsApp%20Image%202026-04-28%20at%2010.54.44%20PM-Photoroom.png?tr=f-webp,t-true"
-            alt="Get a Dream Home"
-            className="h-full w-auto object-contain py-1"
-          />
-          <span className="font-playfair font-bold text-2xl sm:text-3xl text-[#4CAF50] hidden lg:block tracking-wide">
-            JINI HOMES
-          </span>
+          <Menu className="w-6 h-6" />
+        </button>
+
+        {/* Logo Section - Centered on Mobile, Left-aligned on Desktop (will adjust to center if needed) */}
+        <Link 
+          to="/" 
+          className="flex items-center gap-3 group absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0"
+        >
+          <div className="relative flex items-center h-10 sm:h-14 overflow-hidden">
+             <img
+              src="/logo.jpg"
+              alt="JINI HOMES"
+              className="h-full w-auto object-contain transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
+          <div className="flex flex-col leading-tight hidden xs:flex">
+            <span className="font-fraunces font-black text-lg sm:text-2xl tracking-tight text-[#1A2B49]">
+              JINI <span className="text-[#4CAF50]">HOMES</span>
+            </span>
+          </div>
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <Link
-              key={link.title}
-              to={link.path}
-              className={`font-red-hat text-sm font-bold uppercase tracking-widest transition-all duration-300 relative py-1 ${location.pathname === link.path
-                ? 'text-black'
-                : 'text-[#1F2937] hover:text-black'
+        {/* Desktop Navigation - Right Aligned */}
+        <div className="hidden lg:flex items-center gap-8">
+          <div className="flex items-center gap-2 bg-gray-100/50 p-1.5 rounded-2xl border border-gray-100 shadow-sm">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 ${
+                  location.pathname === link.path
+                    ? 'bg-white text-[#4CAF50] shadow-sm border border-gray-100'
+                    : 'text-gray-500 hover:text-[#4CAF50] hover:bg-white/50'
                 }`}
-            >
-              {link.title}
-              {location.pathname === link.path && (
-                <motion.div
-                  layoutId="navUnderline"
-                  className="absolute bottom-0 left-0 w-full h-[2px] bg-[#C5A059]"
-                />
-              )}
-            </Link>
-          ))}
+              >
+                {link.title}
+              </Link>
+            ))}
+          </div>
+          
           <Link
             to="/properties"
-            className="bg-black text-white font-red-hat text-xs font-bold uppercase tracking-widest px-8 py-3.5 rounded-lg hover:bg-[#B89345] transition-all duration-300 shadow-md"
+            className="bg-[#1A2B49] text-white px-8 py-3.5 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-[#4CAF50] transition-all shadow-lg active:scale-95"
           >
             Explore Listings
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden w-10 h-10 flex items-center justify-center text-[#C5A059]"
-        >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Mobile Contact Icon or Empty div to balance the layout on mobile */}
+        <div className="lg:hidden w-10"></div>
       </div>
 
-      {/* Mobile Menu Backdrop & Sidebar */}
+      {/* Mobile Sidebar Overlay */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[85] lg:hidden"
+              className="fixed inset-0 bg-[#1A2B49]/60 backdrop-blur-sm z-[110]"
             />
-
-            {/* Sidebar Drawer */}
             <motion.div
-              initial={{ x: '-100%' }}
+              initial={{ x: '100%' }}
               animate={{ x: 0 }}
-              exit={{ x: '-100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 left-0 w-[310px] h-screen bg-white z-[90] lg:hidden flex flex-col p-8 shadow-2xl"
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              className="fixed top-0 right-0 w-[85%] max-w-[400px] h-screen bg-white z-[120] shadow-2xl flex flex-col"
             >
-              {/* Close Button on the Left */}
-              <button
-                onClick={() => setIsOpen(false)}
-                className="w-10 h-10 flex items-center justify-center text-[#C5A059] mb-12 -ml-2"
-              >
-                <X className="w-8 h-8" />
-              </button>
-
-              <div className="flex flex-col gap-8 w-full">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.title}
-                    to={link.path}
-                    className="flex items-center gap-5 group"
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-[#C5A059]/10 flex items-center justify-center group-hover:bg-[#C5A059] transition-all duration-300">
-                      <link.icon className="w-5 h-5 text-[#C5A059] group-hover:text-white" />
-                    </div>
-                    <span className="font-fraunces text-2xl font-bold text-[#1a1a1a] group-hover:text-[#C5A059] transition-colors">
-                      {link.title}
-                    </span>
-                  </Link>
-                ))}
-
-                <div className="pt-8 mt-4 border-t border-gray-100">
-                  <Link
-                    to="/properties"
-                    className="block w-full bg-[#C5A059] text-white font-red-hat text-xs font-black uppercase tracking-[2px] py-5 rounded-xl shadow-lg shadow-[#C5A059]/20 text-center active:scale-[0.98] transition-transform"
-                  >
-                    View All listings
-                  </Link>
+              <div className="p-6 flex items-center justify-between border-b border-gray-50">
+                <div className="flex items-center gap-2">
+                   <img src="/logo.jpg" alt="Logo" className="h-10 w-auto" />
+                   <span className="font-fraunces font-bold text-lg text-[#1A2B49]">JINI HOMES</span>
                 </div>
+                <button 
+                  onClick={() => setIsOpen(false)}
+                  className="p-2 bg-gray-50 rounded-xl text-gray-500"
+                >
+                  <X className="w-6 h-6" />
+                </button>
               </div>
 
-              {/* Contact Support */}
-              <div className="mt-auto pt-8 border-t border-gray-100">
-                <p className="font-red-hat text-[10px] text-gray-400 uppercase tracking-widest mb-2 font-bold">Need Assistance?</p>
-                <p className="font-fraunces text-2xl font-bold text-[#C5A059]">78190-81887</p>
+              <div className="flex-1 overflow-y-auto p-6 space-y-4">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`flex items-center justify-between p-5 rounded-2xl transition-all ${
+                      location.pathname === link.path
+                        ? 'bg-[#4CAF50]/10 border border-[#4CAF50]/20 text-[#4CAF50]'
+                        : 'bg-gray-50 text-[#1A2B49] hover:bg-gray-100'
+                    }`}
+                  >
+                    <div className="flex items-center gap-4">
+                      <link.icon className={`w-5 h-5 ${location.pathname === link.path ? 'text-[#4CAF50]' : 'text-gray-400'}`} />
+                      <span className="font-bold text-lg">{link.title}</span>
+                    </div>
+                    <ChevronRight className="w-5 h-5 opacity-30" />
+                  </Link>
+                ))}
+              </div>
+
+              <div className="p-6 border-t border-gray-100 bg-gray-50/50">
+                <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-4 text-center">Contact Support</p>
+                <a 
+                  href="tel:78190-81887"
+                  className="flex items-center justify-center gap-3 text-[#1A2B49] font-fraunces text-2xl font-bold mb-6"
+                >
+                  <Phone className="w-5 h-5 text-[#4CAF50]" />
+                  78190-81887
+                </a>
+                <Link
+                  to="/properties"
+                  className="flex items-center justify-center gap-2 w-full bg-[#1A2B49] text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-xl"
+                >
+                  <Building className="w-4 h-4 text-[#4CAF50]" />
+                  View All Listings
+                </Link>
               </div>
             </motion.div>
           </>

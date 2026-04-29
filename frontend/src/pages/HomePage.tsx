@@ -4,6 +4,7 @@ import Navbar from '../components/common/Navbar';
 import Footer from '../components/common/Footer';
 import { useSEO } from '../hooks/useSEO';
 import HeroSection from '../components/home/HeroSection';
+import FeaturesBanner from '../components/home/FeaturesBanner';
 import CuratedListingsSection from '../components/home/CuratedListingsSection';
 import YouTubeGrid from '../components/home/YouTubeGrid';
 import WhyChooseSection from '../components/about/WhyChooseSection';
@@ -36,6 +37,9 @@ const HomePage: React.FC = () => {
 
       {/* Hero Section */}
       <HeroSection />
+
+      {/* Features Banner (Verified properties, etc) */}
+      <FeaturesBanner />
 
       {/* Stats Section */}
 
