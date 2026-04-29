@@ -23,7 +23,7 @@ const HeroSection: React.FC = () => {
     >
       {/* Background Image Container */}
       <div 
-        className="absolute inset-0 w-full h-full z-0 pointer-events-none sm:bg-contain bg-[length:auto_60%] sm:bg-right-top bg-top opacity-100"
+        className="absolute inset-0 w-full h-full z-0 pointer-events-none sm:bg-contain bg-[length:auto_90%] sm:bg-right-top bg-top opacity-100"
         style={{ 
           backgroundImage: "url('https://ik.imagekit.io/kceia4cyw/Property/Gemini_Generated_Image_1vblti1vblti1vbl.png?tr=f-webp')",
           backgroundRepeat: 'no-repeat'
@@ -37,7 +37,7 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-[1440px] mx-auto w-full px-4 sm:px-8 relative z-10 flex-1 flex flex-col justify-start pt-24 sm:pt-32">
+      <div className="max-w-[1440px] mx-auto w-full px-4 sm:px-8 relative z-10 flex-1 flex flex-col justify-start pt-12 sm:pt-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           {/* Left Content */}
@@ -45,7 +45,7 @@ const HeroSection: React.FC = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col items-start pt-6 sm:pt-10 pb-10 sm:pb-16 lg:py-0"
+            className="flex flex-col items-start pt-2 sm:pt-10 pb-10 sm:pb-16 lg:py-0"
           >
             <p className="font-red-hat text-[#4CAF50] font-black text-[10px] sm:text-xs tracking-[3px] uppercase mb-4">
               Your Wish. Our Command.
