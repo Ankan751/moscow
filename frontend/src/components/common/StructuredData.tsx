@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-const SITE_URL = 'https://Hanumant Properties.vercel.app';
+const SITE_URL = 'https://getadreamhome.vercel.app';
 
 interface StructuredDataProps {
   type: 'website' | 'organization' | 'property' | 'aiHub';
@@ -27,7 +27,7 @@ const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) => {
     website: {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      name: 'Hanumant Properties',
+      name: 'Get A Dream Home',
       url: SITE_URL,
       description: 'AI-powered luxury real estate platform for finding your perfect property in India.',
       potentialAction: {
@@ -39,9 +39,9 @@ const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) => {
     organization: {
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'Hanumant Properties',
+      name: 'Get A Dream Home',
       url: SITE_URL,
-      logo: `${SITE_URL}/logo.png`,
+      logo: `https://ik.imagekit.io/kceia4cyw/Property/WhatsApp%20Image%202026-04-28%20at%2010.54.44%20PM-Photoroom.png?tr=f-webp`,
       sameAs: [
         'https://github.com/AAYUSH412/Real-Estate-Website',
         'https://linkedin.com/in/AAYUSH412',
@@ -80,7 +80,7 @@ const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) => {
     aiHub: {
       '@context': 'https://schema.org',
       '@type': 'WebApplication',
-      name: 'AI Property Hub - Hanumant Properties',
+      name: 'AI Property Hub - Get A Dream Home',
       applicationCategory: 'RealEstateApplication',
       description: 'AI-powered real estate analytics, property search, and investment insights.',
       url: `${SITE_URL}/ai-hub`,

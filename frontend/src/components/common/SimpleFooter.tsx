@@ -7,14 +7,14 @@ const SimpleFooter: React.FC = () => {
         {/* Logo */}
         <div className="flex items-center gap-3 mb-3">
           <div className="w-2 h-2 bg-[#38BDF8] rounded-full" />
-          <span className="font-red-hat font-bold text-sm text-[#1C1B1A] uppercase tracking-[4px]">
-            Hanumant Properties
+          <span className="font-red-hat font-bold text-sm text-[#4CAF50] uppercase tracking-[4px]">
+            Get a Dream Home
           </span>
         </div>
 
         {/* Copyright */}
         <p className="font-red-hat font-medium text-xs text-[#5A5856]">
-          © {new Date().getFullYear()} Hanumant Properties. All rights reserved.
+          © {new Date().getFullYear()} Get a Dream Home. All rights reserved.
         </p>
       </div>
     </footer>

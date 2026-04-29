@@ -49,7 +49,7 @@ const PropertyDetailsPage: React.FC = () => {
     title: property ? `${property.title} - ${property.location}` : 'Property Details',
     description: property
       ? `${property.title} in ${property.location}. ${property.beds} beds, ${property.baths} baths, ${property.sqft} sqft. ${property.type}.`
-      : 'View property details on Hanumant Properties.',
+      : 'View property details on Get A Dream Home.',
   });
 
   useEffect(() => {

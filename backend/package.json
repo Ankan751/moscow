@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "Hanumant Properties real estate platform backend API",
+  "description": "Get A Dream Home real estate platform backend API",
   "type": "module",
   "main": "server.js",
   "scripts": {

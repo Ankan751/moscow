@@ -16,7 +16,7 @@ const apiClient = axios.create({
 // ── Request interceptor: attach auth token ──────────────────
 apiClient.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('Hanumant Properties_token');
+    const token = localStorage.getItem('Get A Dream Home_token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -30,7 +30,7 @@ apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      localStorage.removeItem('Hanumant Properties_token');
+      localStorage.removeItem('Get A Dream Home_token');
       // Optionally redirect to login
       // window.location.href = '/signin';
     }
@@ -81,8 +81,8 @@ export const aiAPI = {
     type?: string;
     category?: string;
   }) => {
-    const githubKey = localStorage.getItem('Hanumant Properties_github_key');
-    const firecrawlKey = localStorage.getItem('Hanumant Properties_firecrawl_key');
+    const githubKey = localStorage.getItem('Get A Dream Home_github_key');
+    const firecrawlKey = localStorage.getItem('Get A Dream Home_firecrawl_key');
     return apiClient.post('/ai/search', data, {
       headers: {
         ...(githubKey && { 'X-Github-Key': githubKey }),
@@ -92,8 +92,8 @@ export const aiAPI = {
   },
 
   locationTrends: (city: string) => {
-    const githubKey = localStorage.getItem('Hanumant Properties_github_key');
-    const firecrawlKey = localStorage.getItem('Hanumant Properties_firecrawl_key');
+    const githubKey = localStorage.getItem('Get A Dream Home_github_key');
+    const firecrawlKey = localStorage.getItem('Get A Dream Home_firecrawl_key');
     return apiClient.get(`/locations/${encodeURIComponent(city)}/trends`, {
       headers: {
         ...(githubKey && { 'X-Github-Key': githubKey }),
@@ -103,8 +103,8 @@ export const aiAPI = {
   },
 
   validateKeys: (keys?: { githubKey?: string; firecrawlKey?: string }) => {
-    const githubKey = (keys?.githubKey ?? localStorage.getItem('Hanumant Properties_github_key') ?? '').trim();
-    const firecrawlKey = (keys?.firecrawlKey ?? localStorage.getItem('Hanumant Properties_firecrawl_key') ?? '').trim();
+    const githubKey = (keys?.githubKey ?? localStorage.getItem('Get A Dream Home_github_key') ?? '').trim();
+    const firecrawlKey = (keys?.firecrawlKey ?? localStorage.getItem('Get A Dream Home_firecrawl_key') ?? '').trim();
 
     return apiClient.post('/ai/validate-keys', {}, {
       headers: {
@@ -117,14 +117,14 @@ export const aiAPI = {
 
 // Helpers to read/write user API keys in localStorage
 export const apiKeyStorage = {
-  getGithubKey: () => localStorage.getItem('Hanumant Properties_github_key') || '',
-  getFirecrawlKey: () => localStorage.getItem('Hanumant Properties_firecrawl_key') || '',
-  setGithubKey: (key: string) => localStorage.setItem('Hanumant Properties_github_key', key),
-  setFirecrawlKey: (key: string) => localStorage.setItem('Hanumant Properties_firecrawl_key', key),
-  hasKeys: () => !!(localStorage.getItem('Hanumant Properties_github_key') && localStorage.getItem('Hanumant Properties_firecrawl_key')),
+  getGithubKey: () => localStorage.getItem('Get A Dream Home_github_key') || '',
+  getFirecrawlKey: () => localStorage.getItem('Get A Dream Home_firecrawl_key') || '',
+  setGithubKey: (key: string) => localStorage.setItem('Get A Dream Home_github_key', key),
+  setFirecrawlKey: (key: string) => localStorage.setItem('Get A Dream Home_firecrawl_key', key),
+  hasKeys: () => !!(localStorage.getItem('Get A Dream Home_github_key') && localStorage.getItem('Get A Dream Home_firecrawl_key')),
   clear: () => {
-    localStorage.removeItem('Hanumant Properties_github_key');
-    localStorage.removeItem('Hanumant Properties_firecrawl_key');
+    localStorage.removeItem('Get A Dream Home_github_key');
+    localStorage.removeItem('Get A Dream Home_firecrawl_key');
   },
 };
 

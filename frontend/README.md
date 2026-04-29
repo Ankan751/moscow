@@ -1,15 +1,15 @@
 <div align="center">
 
-# Hanumant Properties — Frontend 🌐
+# Get A Dream Home — Frontend 🌐
 
-_User-facing React application for the Hanumant Properties platform._
+_User-facing React application for the Get A Dream Home platform._
 
 [![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Vite](https://img.shields.io/badge/Vite-6-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Hanumant Properties.vercel.app-2ea44f?style=for-the-badge&logo=vercel)](https://Hanumant Properties.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-getadreamhome.vercel.app-2ea44f?style=for-the-badge&logo=vercel)](https://getadreamhome.vercel.app)
 [![Portfolio](https://img.shields.io/badge/Portfolio-Aayush_Vaghela-000000?style=for-the-badge)](https://aayush-vaghela.vercel.app/)
 
 </div>
@@ -151,7 +151,7 @@ frontend/src/
 5. **Critically:** Do not set `VITE_ENABLE_AI_HUB` in Vercel to preserve limits.
 6. Trigger Deploy.
 
-Currently live at: **https://Hanumant Properties.vercel.app**
+Currently live at: **https://getadreamhome.vercel.app**
 
 ---
 

@@ -26,11 +26,11 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-2 space-y-8">
             <Link to="/" className="flex items-center gap-3">
               <img
-                src="https://res.cloudinary.com/diidko3fa/image/upload/f_webp,q_auto/v1776714352/WhatsApp_Image_2026-04-19_at_8.58.17_PM-Photoroom_hpuhgx.png"
-                alt="Hanumant Properties Logo"
+                src="https://ik.imagekit.io/kceia4cyw/Property/WhatsApp%20Image%202026-04-28%20at%2010.54.44%20PM-Photoroom.png?tr=f-webp,t-true"
+                alt="Get A Dream Home"
                 className="h-20 w-auto object-contain"
               />
-              <span className="font-fraunces font-bold text-3xl tracking-tight text-[#C5A059]">Hanumant Properties</span>
+              <span className="font-fraunces font-bold text-3xl tracking-tight text-[#4CAF50]">Get a Dream Home</span>
             </Link>
             <p className="font-inter  text-base text-white max-w-sm leading-relaxed">
               Curating luxury living spaces and premium investment opportunities across India's most prestigious locations.
@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-6">
           <p className="font-red-hat text-xs text-white/60 uppercase tracking-widest">
-            © {currentYear} Hanumant Properties Luxury Real Estate.
+            © {currentYear} Get a Dream Home Luxury Real Estate.
           </p>
           <div className="flex items-center gap-8">
             <Link to="/contact" className="font-red-hat text-xs text-white/60 hover:text-[#C5A059] uppercase tracking-widest transition-colors font-bold">Contact Support</Link>

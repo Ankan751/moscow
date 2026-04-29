@@ -26,7 +26,7 @@ const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
 }) => {
   const isGold = colorTheme === 'gold';
   const accentText = 'text-black';
-  const accentFocus = isGold ? 'focus:ring-[#C5A059] focus:border-[#C5A059]' : 'focus:ring-[#38BDF8] focus:border-[#38BDF8]';
+  const accentFocus = isGold ? 'focus:ring-[#4CAF50] focus:border-[#4CAF50]' : 'focus:ring-[#38BDF8] focus:border-[#38BDF8]';
 
   return (
     <div className="bg-[#FBFCFF] border-b border-[#E5E5E5]/30 py-8 rounded-b-[40px] shadow-sm mb-8 transition-all">

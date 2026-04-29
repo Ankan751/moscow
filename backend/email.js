@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════
-// Hanumant Properties Email Templates
+// Get a Dream Home Email Templates
 // Design: Warm terracotta (#D4755B), clean & professional
 // ═══════════════════════════════════════════════════════════
 
@@ -10,7 +10,7 @@ const BRAND = {
   border: '#E6E0DA',
   text: '#374151',
   muted: '#6B7280',
-  site: process.env.WEBSITE_URL || 'https://Hanumant Properties.vercel.app',
+  site: process.env.WEBSITE_URL || 'https://getadreamhome.vercel.app',
   year: new Date().getFullYear(),
 };
 
@@ -21,7 +21,7 @@ const wrap = (title, body) => `
   <!-- Header -->
   <div style="background:${BRAND.dark};padding:32px 28px;text-align:center;">
     <h1 style="margin:0;font-size:22px;font-weight:700;color:#ffffff;letter-spacing:0.5px;">${title}</h1>
-    <p style="margin:8px 0 0;font-size:13px;color:rgba(255,255,255,0.7);">Hanumant Properties</p>
+    <p style="margin:8px 0 0;font-size:13px;color:rgba(255,255,255,0.7);">Get a Dream Home</p>
   </div>
 
   <!-- Body -->
@@ -31,7 +31,7 @@ const wrap = (title, body) => `
 
   <!-- Footer -->
   <div style="border-top:1px solid ${BRAND.border};padding:20px 28px;text-align:center;font-size:12px;color:${BRAND.muted};">
-    <p style="margin:0;">&copy; ${BRAND.year} Hanumant Properties. All rights reserved.</p>
+    <p style="margin:0;">&copy; ${BRAND.year} Get a Dream Home. All rights reserved.</p>
     <p style="margin:8px 0 0;">
       <a href="${BRAND.site}" style="color:${BRAND.color};text-decoration:none;">Website</a>
       &nbsp;&middot;&nbsp;
@@ -139,8 +139,8 @@ export const getNewsletterTemplate = (email) => wrap(
 // ─── 4. Welcome (Registration) ──────────────────────────
 
 export const getWelcomeTemplate = (name) => wrap(
-  'Welcome to Hanumant Properties',
-  `<p style="margin:0 0 20px;font-size:15px;">Hello <strong style="color:${BRAND.color};">${name}</strong>,</p>
+  'Welcome to Get a Dream Home',
+    `<p style="margin:0 0 20px;font-size:15px;">Hello <strong style="color:${BRAND.color};">${name}</strong>,</p>
   <p style="margin:0 0 24px;font-size:15px;">Your account has been created successfully. Here's what you can do:</p>
 
   <div style="background:#ffffff;border:1px solid ${BRAND.border};border-radius:8px;padding:16px 20px;margin-bottom:24px;">
@@ -162,7 +162,7 @@ export const getWelcomeTemplate = (name) => wrap(
 export const getEmailVerificationTemplate = (name, verificationUrl) => wrap(
   'Verify Your Email Address',
   `<p style="margin:0 0 20px;font-size:15px;">Hello <strong style="color:${BRAND.color};">${name}</strong>,</p>
-  <p style="margin:0 0 24px;font-size:15px;">Thanks for signing up with Hanumant Properties! To complete your registration and start exploring properties, please verify your email address.</p>
+  <p style="margin:0 0 24px;font-size:15px;">Thanks for signing up with Get a Dream Home to complete your registration and start exploring properties, please verify your email address.</p>
 
   <div style="background:#ffffff;border:1px solid ${BRAND.border};border-radius:8px;padding:20px;margin-bottom:24px;text-align:center;">
     <p style="margin:0 0 16px;font-size:14px;color:${BRAND.muted};">Click the button below to verify your email. This link expires in <strong>24 hours</strong>.</p>
@@ -179,14 +179,14 @@ export const getEmailVerificationTemplate = (name, verificationUrl) => wrap(
     <p style="margin:0;font-size:12px;color:${BRAND.muted};word-break:break-all;">Copy and paste this link into your browser:<br/><a href="${verificationUrl}" style="color:${BRAND.color};text-decoration:none;">${verificationUrl}</a></p>
   </div>
 
-  <p style="font-size:13px;color:${BRAND.muted};margin:16px 0 0;">If you didn't create an account with Hanumant Properties, you can safely ignore this email.</p>`
+  <p style="font-size:13px;color:${BRAND.muted};margin:16px 0 0;">If you didn't create an account with Get a Dream Home you can safely ignore this email.</p>`
 );
 
 // ─── 5. Password Reset ──────────────────────────────────
 
 export const getPasswordResetTemplate = (resetUrl) => wrap(
   'Reset Your Password',
-  `<p style="margin:0 0 20px;font-size:15px;">We received a request to reset your Hanumant Properties account password.</p>
+  `<p style="margin:0 0 20px;font-size:15px;">We received a request to reset your Get a Dream Home account password.</p>
 
   <p style="margin:0 0 8px;font-size:14px;color:${BRAND.muted};">Click the button below to set a new password. This link expires in <strong>10 minutes</strong>.</p>
 
@@ -211,7 +211,7 @@ export const getListingApprovedTemplate = (propertyTitle, propertyId) => wrap(
   </div>
 
   <div style="background:#f0fdf4;border-left:3px solid #16a34a;padding:14px 16px;border-radius:6px;font-size:14px;color:#166534;margin-bottom:24px;">
-    Your listing is now visible to all buyers and renters on Hanumant Properties.
+    Your listing is now visible to all buyers and renters on Get a Dream Home
   </div>
 
   ${btn(BRAND.site + '/property/' + propertyId, 'View Your Listing')}
@@ -247,7 +247,7 @@ export const getUserSuspendedTemplate = (userName, days, reason, suspendedUntil)
   'Account Temporarily Suspended',
   `<p style="margin:0 0 20px;font-size:15px;">Hello ${userName},</p>
   
-  <p style="margin:0 0 20px;font-size:15px;">Your Hanumant Properties account has been temporarily suspended for ${days} day${days > 1 ? 's' : ''}. During this period, you will not be able to access your account or post new listings.</p>
+  <p style="margin:0 0 20px;font-size:15px;">Your Get a Dream Home account has been temporarily suspended for ${days} day${days > 1 ? 's' : ''}. During this period, you will not be able to access your account or post new listings.</p>
 
   <div style="background:#ffffff;border:1px solid ${BRAND.border};border-radius:8px;padding:20px;margin-bottom:24px;">
     <table style="width:100%;border-collapse:collapse;">
@@ -277,7 +277,7 @@ export const getUserBannedTemplate = (userName, reason) => wrap(
   'Account Permanently Banned',
   `<p style="margin:0 0 20px;font-size:15px;">Hello ${userName},</p>
   
-  <p style="margin:0 0 20px;font-size:15px;">After careful review, your Hanumant Properties account has been permanently banned due to violations of our terms of service.</p>
+  <p style="margin:0 0 20px;font-size:15px;">After careful review, your Get a Dream Home account has been permanently banned due to violations of our terms of service.</p>
 
   <div style="background:#ffffff;border:1px solid ${BRAND.border};border-radius:8px;padding:20px;margin-bottom:24px;">
     <table style="width:100%;border-collapse:collapse;">
@@ -290,7 +290,7 @@ export const getUserBannedTemplate = (userName, reason) => wrap(
 
   <div style="background:#fef2f2;border-left:3px solid #dc2626;padding:14px 16px;border-radius:6px;font-size:14px;color:#991b1b;margin-bottom:24px;">
     <strong>Account Impact:</strong><br>
-    • You can no longer access your Hanumant Properties account<br>
+    • You can no longer access your Get a Dream Home account<br>
     • All your listings have been removed from the platform<br>
     • Creating new accounts is prohibited
   </div>
@@ -306,7 +306,7 @@ export const getUserReactivatedTemplate = (userName) => wrap(
   'Account Reactivated - Welcome Back!',
   `<p style="margin:0 0 20px;font-size:15px;">Hello ${userName},</p>
   
-  <p style="margin:0 0 20px;font-size:15px;">Great news! Your Hanumant Properties account has been reactivated and you now have full access to all platform features.</p>
+  <p style="margin:0 0 20px;font-size:15px;">Great news! Your Get a Dream Home account has been reactivated and you now have full access to all platform features.</p>
 
   <div style="background:#ffffff;border:1px solid ${BRAND.border};border-radius:8px;padding:20px;margin-bottom:24px;">
     <table style="width:100%;border-collapse:collapse;">
@@ -320,12 +320,12 @@ export const getUserReactivatedTemplate = (userName) => wrap(
     <strong>What's restored:</strong><br>
     • Full access to your account dashboard<br>
     • Ability to post and manage listings<br>
-    • Access to all Hanumant Properties features
+    • Access to all Get a Dream Home features
   </div>
 
-  <p style="margin:20px 0;font-size:15px;">We're glad to have you back! You can now log in and resume using Hanumant Properties.</p>
+  <p style="margin:20px 0;font-size:15px;">We're glad to have you back! You can now log in and resume using Get a Dream Home<p>
 
   ${btn(BRAND.site + '/login', 'Log In to Your Account')}
 
-  <p style="font-size:13px;color:${BRAND.muted};margin:0;">Thank you for being part of the Hanumant Properties community.</p>`
+  <p style="font-size:13px;color:${BRAND.muted};margin:0;">Thank you for being part of the Get a Dream Home community.</p>`
 );

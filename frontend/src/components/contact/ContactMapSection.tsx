@@ -21,7 +21,7 @@ const ContactMapSection: React.FC = () => {
               </span>
               <div className="text-left">
                 <p className="font-fraunces font-bold text-base text-[#1F2937] mb-0.5">
-                  Hanumant Properties Office
+                  Get A Dream Homefice
                 </p>
                 <p className="font-red-hat font-extralight text-xs text-[#4B5563]">
                   Click to view on Google Maps

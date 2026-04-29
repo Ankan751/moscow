@@ -287,9 +287,9 @@ const PropertiesPage: React.FC = () => {
         >
           <div className="relative group/icon">
             {/* Ambient Glow */}
-            <div className="absolute inset-0 bg-[#C5A059]/40 blur-md rounded-full group-hover:blur-lg transition-all duration-500" />
+            <div className="absolute inset-0 bg-[#4CAF50]/40 blur-md rounded-full group-hover:blur-lg transition-all duration-500" />
             
-            <span className="relative w-7 h-7 flex items-center justify-center bg-gradient-to-br from-[#E1C288] via-[#C5A059] to-[#B89345] rounded-full border border-white/20 shadow-inner group-hover:rotate-[360deg] transition-transform duration-1000 ease-in-out overflow-hidden">
+            <span className="relative w-7 h-7 flex items-center justify-center bg-gradient-to-br from-[#81c784] via-[#4CAF50] to-[#2e7d32] rounded-full border border-white/20 shadow-inner group-hover:rotate-[360deg] transition-transform duration-1000 ease-in-out overflow-hidden">
               <span className="material-icons text-[14px] text-white drop-shadow-md">tune</span>
               
               {/* Shine Sweep Effect */}

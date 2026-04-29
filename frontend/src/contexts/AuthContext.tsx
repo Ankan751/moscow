@@ -17,8 +17,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   useEffect(() => {
     // Since public site has no login, we ensure all auth-related storage is cleared
-    localStorage.removeItem('Hanumant Properties_token');
-    localStorage.removeItem('Hanumant Properties_user');
+    localStorage.removeItem('Get A Dream Homeken');
+    localStorage.removeItem('Get A Dream Homeer');
     setIsLoading(false);
   }, []);
 
@@ -31,8 +31,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const logout = () => {
-    localStorage.removeItem('Hanumant Properties_token');
-    localStorage.removeItem('Hanumant Properties_user');
+    localStorage.removeItem('Get A Dream Homeken');
+    localStorage.removeItem('Get A Dream Homeer');
   };
 
   return (

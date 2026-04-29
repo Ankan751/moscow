@@ -213,7 +213,7 @@ export const updateAppointmentStatus = async (req, res) => {
         const mailOptions = {
           from: process.env.EMAIL,
           to: recipientEmail,
-          subject: `Viewing Appointment ${status.charAt(0).toUpperCase() + status.slice(1)} - Hanumant Properties`,
+          subject: `Viewing Appointment ${status.charAt(0).toUpperCase() + status.slice(1)} - Get A Dream Home`,
           html: getEmailTemplate(appointment, status)
         };
 
@@ -254,24 +254,24 @@ export const scheduleViewing = async (req, res) => {
     const isGeneral = !propertyId || propertyId === 'general' || propertyId === 'undefined';
 
     if (!isGeneral) {
-        try {
-            property = await Property.findById(propertyId);
-            if (!property) {
-                return res.status(404).json({
-                    success: false,
-                    message: 'Property not found'
-                });
-            }
-        } catch (err) {
-            // If it's a malformed ObjectID, treat as general or return error?
-            // Let's treat as general if it's from the home page.
-            property = null;
+      try {
+        property = await Property.findById(propertyId);
+        if (!property) {
+          return res.status(404).json({
+            success: false,
+            message: 'Property not found'
+          });
         }
+      } catch (err) {
+        // If it's a malformed ObjectID, treat as general or return error?
+        // Let's treat as general if it's from the home page.
+        property = null;
+      }
     }
 
     // Build appointment data — link user if logged in, else store guest info
     const appointmentData = {
-        propertyId: property ? property._id : null,
+      propertyId: property ? property._id : null,
       ...(date && { date }),
       ...(time && { time }),
       notes: notes || message || '',
@@ -283,43 +283,43 @@ export const scheduleViewing = async (req, res) => {
 
     // AI Matching Logic
     if (description) {
-        try {
-            const parsed = await parseWithGrok(description);
-            const userRequirements = validate(parsed, description, property);
-            const scoreObj = calculateScore(property, userRequirements);
-            
-            appointmentData.matchingScore = scoreObj.total;
-            appointmentData.matchingDetails = scoreObj.details;
-            appointmentData.aiRequirements = userRequirements;
+      try {
+        const parsed = await parseWithGrok(description);
+        const userRequirements = validate(parsed, description, property);
+        const scoreObj = calculateScore(property, userRequirements);
 
-            // Generate Suggested Pitches
-            try {
-                const query = buildQuery(userRequirements);
-                const allProperties = await Property.find(query);
-                
-                const suggestions = allProperties
-                    .filter(p => !property || p._id.toString() !== property._id.toString())
-                    .map(p => ({
-                        property: p,
-                        score: calculateScore(p, userRequirements).total
-                    }))
-                    .filter(item => item.score >= 0.5)
-                    .sort((a, b) => b.score - a.score)
-                    .slice(0, 3)
-                    .map(item => ({
-                        propertyId: item.property._id,
-                        title: item.property.title,
-                        matchScore: item.score
-                    }));
-                
-                appointmentData.suggestedProperties = suggestions;
-            } catch (suggestError) {
-                console.error('Suggestion generation failed:', suggestError.message);
-            }
-        } catch (aiError) {
-            console.error('AI Matching failed for appointment:', aiError.message);
-            // We don't fail the appointment if AI fails
+        appointmentData.matchingScore = scoreObj.total;
+        appointmentData.matchingDetails = scoreObj.details;
+        appointmentData.aiRequirements = userRequirements;
+
+        // Generate Suggested Pitches
+        try {
+          const query = buildQuery(userRequirements);
+          const allProperties = await Property.find(query);
+
+          const suggestions = allProperties
+            .filter(p => !property || p._id.toString() !== property._id.toString())
+            .map(p => ({
+              property: p,
+              score: calculateScore(p, userRequirements).total
+            }))
+            .filter(item => item.score >= 0.5)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 3)
+            .map(item => ({
+              propertyId: item.property._id,
+              title: item.property.title,
+              matchScore: item.score
+            }));
+
+          appointmentData.suggestedProperties = suggestions;
+        } catch (suggestError) {
+          console.error('Suggestion generation failed:', suggestError.message);
         }
+      } catch (aiError) {
+        console.error('AI Matching failed for appointment:', aiError.message);
+        // We don't fail the appointment if AI fails
+      }
     }
 
     const appointment = new Appointment(appointmentData);
@@ -337,7 +337,7 @@ export const scheduleViewing = async (req, res) => {
         const mailOptions = {
           from: process.env.EMAIL,
           to: recipientEmail,
-          subject: 'Viewing Request Received - Hanumant Properties',
+          subject: 'Viewing Request Received - Get A Dream Home',
           html: getSchedulingEmailTemplate(
             appointment,
             date || 'To be confirmed',
@@ -402,7 +402,7 @@ export const cancelAppointment = async (req, res) => {
         const mailOptions = {
           from: process.env.EMAIL,
           to: recipientEmail,
-          subject: 'Appointment Cancelled - Hanumant Properties',
+          subject: 'Appointment Cancelled - Get A Dream Home',
           html: getEmailTemplate(appointment, 'cancelled')
         };
 
@@ -471,7 +471,7 @@ export const updateAppointmentMeetingLink = async (req, res) => {
         const mailOptions = {
           from: process.env.EMAIL,
           to: recipientEmail,
-          subject: 'Meeting Link Updated - Hanumant Properties',
+          subject: 'Meeting Link Updated - Get A Dream Home',
           html: getEmailTemplate(appointment, 'confirmed')
         };
 

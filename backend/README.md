@@ -1,8 +1,8 @@
 <div align="center">
 
-# Hanumant Properties — Backend API ⚙️
+# Get A Dream Home — Backend API ⚙️
 
-_The core REST API server driving the Hanumant Properties real estate platform._
+_The core REST API server driving the Get A Dream Home real estate platform._
 
 [![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)
 [![Express.js](https://img.shields.io/badge/Express.js-Backend-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com)

@@ -9,7 +9,7 @@ const AboutHeritageSection: React.FC = () => {
       <div className="max-w-[1280px] mx-auto px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left - Image */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -17,7 +17,7 @@ const AboutHeritageSection: React.FC = () => {
             className="relative"
           >
             {/* Elegant Luxury Frame */}
-            <div className="absolute -inset-4 border border-[#C5A059]/30 rounded-2xl md:-inset-6 translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4 -z-10 bg-[#FAF8F4]" />
+            <div className="absolute -inset-4 border border-[#4CAF50]/30 rounded-2xl md:-inset-6 translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4 -z-10 bg-[#FAF8F4]" />
             <div className="border border-[#1F3A5F]/10 rounded-2xl p-2 bg-white shadow-xl relative z-10">
               <div className="relative h-[400px] sm:h-[600px] lg:h-[700px] rounded-xl overflow-hidden">
                 <img
@@ -31,7 +31,7 @@ const AboutHeritageSection: React.FC = () => {
           </motion.div>
 
           {/* Right - Content */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -56,17 +56,17 @@ const AboutHeritageSection: React.FC = () => {
             {/* Description */}
             <div className="space-y-5 mb-10">
               <p className="font-red-hat text-base leading-7 text-[#4B5563] font-medium">
-                Hanumant Properties, led by Chartered Financial Analyst Gaurav Sharma (Director), is a distinguished real estate service dedicated to helping clients buy and invest in property with complete confidence. Combining deep financial expertise with strong local market insight, we deliver a refined, transparent, and seamless property experience. Our approach ensures every transaction is not only smooth and reliable, but also strategically aligned with long-term value and investment growth.
+                Get a Dream Home, led by Chartered Financial Analyst Gaurav Sharma (Director), is a distinguished real estate service dedicated to helping clients buy and invest in property with complete confidence. Combining deep financial expertise with strong local market insight, we deliver a refined, transparent, and seamless property experience. Our approach ensures every transaction is not only smooth and reliable, but also strategically aligned with long-term value and investment growth.
               </p>
             </div>
 
             {/* Blockquote */}
-            <motion.blockquote 
+            <motion.blockquote
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
-              className="border-l-[3px] border-[#C5A059] pl-6 mb-10"
+              className="border-l-[3px] border-[#4CAF50] pl-6 mb-10"
             >
               <p className="font-fraunces italic text-2xl leading-relaxed text-[#1F3A5F]">
                 "We believe finding a home should be inspiring,

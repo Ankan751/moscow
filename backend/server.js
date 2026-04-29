@@ -1,4 +1,4 @@
-import express from 'express'; // Triggering restart
+import express from 'express'; // Restarting to pick up new .env
 import dotenv from 'dotenv';
 
 // Load environment variables immediately

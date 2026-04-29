@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Hanumant Properties Backend Quick Setup Script
-# This script helps you set up the Hanumant Properties backend quickly
+# Get A Dream Home Backend Quick Setup Script
+# This script helps you set up the Get A Dream Home backend quickly
 
 # Colors for output
 RED='\033[0;31m'
@@ -33,7 +33,7 @@ print_header() {
 }
 
 # Header
-print_header "🏠 Hanumant Properties Backend Setup"
+print_header "🏠 Get A Dream Home Backend Setup"
 print_header "============================"
 echo ""
 
@@ -137,7 +137,7 @@ if [ ! -f ".env.local" ]; then
         print_warning ".env.example not found. Creating basic .env.local template..."
         cat > .env.local << EOF
 # MongoDB Configuration
-MONGO_URI=mongodb://localhost:27017/Hanumant Properties
+MONGO_URI=mongodb://localhost:27017/Get A Dream Home
 
 # JWT Configuration
 JWT_SECRET=your-super-secret-jwt-key-here

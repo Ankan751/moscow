@@ -293,7 +293,7 @@ const ActivityLogs = () => {
                   type="email"
                   value={filters.adminEmail}
                   onChange={(e) => handleFilterChange('adminEmail', e.target.value)}
-                  placeholder="admin@Hanumant Properties.com"
+                  placeholder="admin@Get A Dream Homem"
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2
                            focus:ring-[#C5A059] focus:border-transparent"
                 />

@@ -9,7 +9,7 @@ import ContactMapSection from '../components/contact/ContactMapSection';
 const ContactPage: React.FC = () => {
   useSEO({
     title: 'Contact Us',
-    description: 'Get in touch with Hanumant Properties. We\'re here to help you find your dream property.',
+    description: 'Get in touch with Get A Dream Home. We\'re here to help you find your dream property.',
   });
 
   return (

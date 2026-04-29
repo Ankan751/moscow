@@ -1,8 +1,8 @@
-# Contributing to Hanumant Properties
+# Contributing to Get A Dream Home
 
 
 
-Thank you for considering contributing to Hanumant Properties! This document outlines the process for contributing to this project.
+Thank you for considering contributing to Get A Dream Home! This document outlines the process for contributing to this project.
 
 ## Code of Conduct
 
@@ -10,7 +10,7 @@ By participating in this project, you agree to maintain a respectful and inclusi
 
 ## How to Contribute
 
-There are several ways you can contribute to the Hanumant Properties project:
+There are several ways you can contribute to the Get A Dream Home project:
 
 1. **Reporting Bugs**: Open an issue describing the bug, how to reproduce it, and any potential solutions.
 2. **Suggesting Features**: Open an issue describing your feature idea and how it would benefit the project.
@@ -102,4 +102,4 @@ There are several ways you can contribute to the Hanumant Properties project:
 
 Feel free to [open an issue](https://github.com/AAYUSH412/Real-Estate-Website/issues) or reach out at **aayushvaghela12@gmail.com**.
 
-Thank you for contributing to Hanumant Properties!
+Thank you for contributing to Get A Dream Home!

@@ -15,7 +15,7 @@ const HomePage: React.FC = () => {
 
   useSEO({
     title: 'Premium Real Estate Platform',
-    description: 'Hanumant Properties offers AI-powered property search, location trends analysis, and investment insights to find your perfect property in India.',
+    description: 'Get a Dream Home offers AI-powered property search, location trends analysis, and investment insights to find your perfect property in India.',
   });
 
   useEffect(() => {

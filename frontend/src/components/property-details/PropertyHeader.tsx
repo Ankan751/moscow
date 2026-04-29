@@ -61,7 +61,7 @@ const PropertyHeader: React.FC<PropertyHeaderProps> = ({
                 Featured
               </span>
               <span className="font-red-hat text-xs font-bold text-[var(--slate-gray)] uppercase tracking-widest">
-                Hanumant Properties Exclusive
+                Get A Dream Homeclusive
               </span>
             </div>
 

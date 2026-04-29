@@ -43,7 +43,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
   youtubeLink,
   colorTheme = 'blue'
 }) => {
-  const accentText = 'text-[#C5A059]';
+  const accentText = 'text-[#4CAF50]';
   const groupAccentText = 'group-hover:text-black';
 
 

@@ -96,13 +96,13 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/dashboard" className="flex items-center gap-3 group">
             <img 
-              src="https://res.cloudinary.com/diidko3fa/image/upload/f_webp,q_auto/v1776714352/WhatsApp_Image_2026-04-19_at_8.58.17_PM-Photoroom_hpuhgx.png" 
-              alt="Hanumant Properties" 
+              src="https://ik.imagekit.io/kceia4cyw/Property/WhatsApp%20Image%202026-04-28%20at%2010.54.44%20PM-Photoroom.png?tr=f-webp,t-true" 
+              alt="Get A Dream Home" 
               className="h-9 w-auto" 
             />
             <div>
               <span className="text-lg font-bold text-[#FAF8F4] tracking-tight">
-                Hanumant Properties
+                Get A Dream Home
               </span>
               <div className="text-[10px] text-[#9CA3AF] font-medium uppercase tracking-widest leading-none">
                 Admin Panel

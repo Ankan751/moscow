@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg h-[65px]' : 'bg-white h-[81px]'
+    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg h-[65px]' : 'bg-transparent h-[81px]'
       }`}>
       <div className="max-w-[1440px] mx-auto h-full px-4 sm:px-8 flex items-center justify-between relative">
         {/* Brand Logo */}
@@ -37,13 +37,14 @@ const Navbar: React.FC = () => {
           className="flex items-center gap-3 h-full py-0 lg:static absolute left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0"
         >
           <img
-            src="https://res.cloudinary.com/diidko3fa/image/upload/f_webp,q_auto/v1776714352/WhatsApp_Image_2026-04-19_at_8.58.17_PM-Photoroom_hpuhgx.png"
-            alt="Hanumant Properties Logo"
+            src="https://ik.imagekit.io/kceia4cyw/Property/WhatsApp%20Image%202026-04-28%20at%2010.54.44%20PM-Photoroom.png?tr=f-webp,t-true"
+            alt="Get a Dream Home"
             className="h-full w-auto object-contain py-1"
           />
-          <span className="font-playfair font-medium text-2xl sm:text-3xl text-[#C5A059] hidden lg:block tracking-wide">
-            Hanumant Properties
-          </span>      </Link>
+          <span className="font-playfair font-bold text-2xl sm:text-3xl text-[#4CAF50] hidden lg:block tracking-wide">
+            JINI HOMES
+          </span>
+        </Link>
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-10">
@@ -126,7 +127,7 @@ const Navbar: React.FC = () => {
                     </span>
                   </Link>
                 ))}
-                
+
                 <div className="pt-8 mt-4 border-t border-gray-100">
                   <Link
                     to="/properties"

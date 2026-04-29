@@ -11,7 +11,7 @@ import AboutCTASection from '../components/about/AboutCTASection';
 const AboutUsPage: React.FC = () => {
   useSEO({
     title: 'About Us',
-    description: 'Learn about Hanumant Properties — our mission, values, and the luxury real estate experience in Punjab.',
+    description: 'Learn about Get A Dream Home, values, and the luxury real estate experience in Punjab.',
   });
 
   return (

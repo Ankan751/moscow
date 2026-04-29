@@ -1,5 +1,5 @@
 /**
- * Winston Structured Logger for Hanumant Properties Backend
+ * Winston Structured Logger for Get A Dream Home Backend
  *
  * Features:
  * - Log levels: error, warn, info, http, debug
@@ -49,7 +49,7 @@ const getLogLevel = () => {
 const logger = winston.createLogger({
   level: getLogLevel(),
   format: process.env.NODE_ENV === 'production' ? prodFormat : devFormat,
-  defaultMeta: { service: 'Hanumant Properties-api' },
+  defaultMeta: { service: 'Get A Dream Home-api' },
   transports: [
     new winston.transports.Console({
       stderrLevels: ['error'],

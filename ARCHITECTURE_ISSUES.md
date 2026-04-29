@@ -1,6 +1,6 @@
-# Hanumant Properties - Architecture Issues Document
+# Get A Dream Home - Architecture Issues Document
 
-> **Project:** Real Estate Website (Hanumant Properties)
+> **Project:** Real Estate Website (Get A Dream Home)
 > **GitHub:** [github.com/AAYUSH412/Real-Estate-Website](https://github.com/AAYUSH412/Real-Estate-Website)
 > **Type:** Open-source project
 > **Structure:** Monorepo with 3 apps - `admin/`, `backend/`, `frontend/`
@@ -12,7 +12,7 @@
 
 | App | URL |
 |-----|-----|
-| **Frontend** | https://Hanumant Properties.vercel.app |
+| **Frontend** | https://Get A Dream Home.vercel.app |
 | **Backend** | https://real-estate-website-backend-zfu7.onrender.com |
 | **Admin** | https://real-estate-website-admin-sage.vercel.app/dashboard |
 
@@ -425,9 +425,9 @@ Inconsistent naming makes configuration confusing and error-prone.
 
 | Purpose | Admin | Frontend |
 |---------|-------|----------|
-| Auth Token | `token` | `Hanumant Properties_token` |
+| Auth Token | `token` | `Get A Dream Home_token` |
 | Admin Flag | `isAdmin` | N/A |
-| User Data | N/A | `Hanumant Properties_user` |
+| User Data | N/A | `Get A Dream Home_user` |
 
 **Files:**
 - `admin/src/config/constants.js:15-16`
@@ -1300,7 +1300,7 @@ export const searchProperties = async (req, res) => {
 - ✅ Error stack traces in structured format
 - ✅ Request ID correlation via `X-Request-ID` header
 - ✅ Child loggers with request context
-- ✅ Service metadata (`Hanumant Properties-api`)
+- ✅ Service metadata (`Get A Dream Home-api`)
 
 **Dependencies Added:**
 ```json
@@ -1538,9 +1538,9 @@ PORT=4000
 MONGO_URI=mongodb+srv://...
 JWT_SECRET=your-secret-key
 BREVO_API_KEY=your-brevo-key
-FRONTEND_URL=https://Hanumant Properties.vercel.app
+FRONTEND_URL=https://Get A Dream Home.vercel.app
 ADMIN_URL=https://real-estate-website-admin-sage.vercel.app
-WEBSITE_URL=https://Hanumant Properties.vercel.app
+WEBSITE_URL=https://Get A Dream Home.vercel.app
 ```
 
 ### Frontend (Vercel)

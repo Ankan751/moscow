@@ -1,227 +1,223 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Search, Sparkles, MapPin, Zap } from 'lucide-react';
+import { Search, ShieldCheck, UserCheck, FileCheck, Wallet, Sparkles } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
 const HeroSection: React.FC = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchMode, setSearchMode] = useState<'traditional' | 'ai'>('ai');
+  const [searchMode, setSearchMode] = useState<'standard' | 'ai'>('ai');
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchTerm.trim()) {
-      if (searchMode === 'ai') {
-        navigate(`/search?q=${encodeURIComponent(searchTerm.trim())}`);
-      } else {
-        navigate(`/properties?search=${encodeURIComponent(searchTerm.trim())}`);
-      }
+      const path = searchMode === 'ai' ? '/ai-hub' : '/search';
+      navigate(`${path}?q=${encodeURIComponent(searchTerm.trim())}`);
     }
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.25,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
-    },
-  };
-
-  const suggestions = {
-    traditional: ['Jalandhar', 'Ludhiana', 'Plot', 'Villa'],
-    ai: ['3 BHK under 50 Lakhs', 'Villa near Bus Stand', 'House in Model Town', 'Plot for investment'],
-  };
-
   return (
-    <section className="relative w-full h-[85vh] sm:h-[90vh] lg:h-[100vh] overflow-hidden bg-[#1F3A5F]">
+    <section className="relative w-full min-h-[85vh] overflow-hidden flex flex-col justify-between bg-[#F0F7FA]">
 
-      {/* LAYER 1: Background Image (Buildings & Sky) */}
-      <div className="absolute inset-0 w-full h-full z-0">
+      {/* Background Image placed more to the right */}
+      <div className="absolute inset-0 w-full h-full z-0 flex justify-end pointer-events-none">
         <img
-          src="https://res.cloudinary.com/diidko3fa/image/upload/q_auto/f_auto/v1776629396/Gemini_Generated_Image_bncobnbncobnbnco_ivcdgz.png"
-          alt="Hanumant Properties Luxury Real Estate"
-          className="w-full h-full object-cover object-center scale-105"
+          src="https://ik.imagekit.io/kceia4cyw/Property/Gemini_Generated_Image_1vblti1vblti1vbl.png?tr=f-webp"
+          alt="Dream Home Background"
+          className="w-full h-full object-contain object-right-top"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1F3A5F]/60 via-[#1F3A5F]/20 to-transparent" />
+        {/* Gradient overlay to blend left side without hiding the center */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F0F7FA] via-[#F0F7FA]/50 to-transparent w-full lg:w-[45%]" />
+        {/* Bottom fade for the banner */}
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#FDFBF7] to-transparent" />
       </div>
 
-      {/* LAYER 2: Animated Text (Behind the Statue) */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-8 mt-[calc(-45vh-30px)] sm:mt-[-10vh] z-10 pointer-events-none -translate-y-[50px] sm:translate-y-0">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="text-center mb-12 sm:mb-16 w-full flex flex-col items-center"
-        >
-          <motion.div variants={itemVariants} className="flex items-center justify-center gap-2 mb-4">
-            <div className="h-px w-8 bg-white/80" />
-            <span className="font-red-hat text-white text-[10px] sm:text-xs font-bold uppercase tracking-[4px] drop-shadow-md">
-              Curated Real Estate
-            </span>
-            <div className="h-px w-8 bg-white/80" />
+      {/* Main Content */}
+      <div className="max-w-[1440px] mx-auto w-full px-4 sm:px-8 relative z-10 flex-1 flex flex-col justify-start pt-24 sm:pt-32">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+          {/* Left Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-start pt-10 pb-16 lg:py-0"
+          >
+            <p className="font-red-hat text-[#4CAF50] font-black text-[10px] sm:text-xs tracking-[3px] uppercase mb-4">
+              Your Wish. Our Command.
+            </p>
+
+            <h1 className="font-fraunces text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A2B49] leading-[1.1] mb-6">
+              Find Your <br />
+              <span className="text-[#4CAF50]">Dream Home</span> <br />
+              in Delhi
+            </h1>
+
+            <p className="font-red-hat text-[#4B5563] text-sm sm:text-base font-medium mb-10 leading-relaxed max-w-md">
+              Verified properties, loan assistance & <br className="hidden sm:block" />
+              <span className="text-[#4CAF50] font-bold">0 down payment</span> options.
+            </p>
+
+
           </motion.div>
 
-          <motion.h1 className="font-fraunces font-bold text-[16vw] lg:mb-32 mb-[-60px] sm:text-[14vw] mb-[-60px] lg:text-[12vw] text-white/95 uppercase leading-[0.85] tracking-tight drop-shadow-2xl flex flex-col items-center w-full">
-            <motion.span variants={itemVariants} className="block mb-3">
-              HANUMANT
-            </motion.span>
-            <motion.span variants={itemVariants} className="block">
-              PROPERTIES
-            </motion.span>
-          </motion.h1>
-        </motion.div>
+          {/* Right side is intentionally empty to let the image show */}
+          <div className="hidden lg:block"></div>
+        </div>
       </div>
 
-      {/* LAYER 3: Foreground Statue (FIXED SCALE) */}
-      <div className="absolute inset-0 w-full h-full z-20 pointer-events-none">
-        <img
-          src="https://res.cloudinary.com/diidko3fa/image/upload/f_webp,q_auto/v1776630316/Gemini_Generated_Image_5xpy8y5xpy8y5xpy-Photoroom_na4dxw.png"
-          alt="Lord Hanuman Statue"
-          className="w-full h-full object-cover object-center scale-105 drop-shadow-2xl"
-        />
-      </div>
+      {/* Floating Search Bar & Features Banner Wrapper */}
+      <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-8 relative z-20 mt-auto">
+        <div className="flex flex-col items-center w-full">
 
-      {/* LAYER 4: Interactive UI (Search Bar) */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-8 mt-[5vh] z-30 pointer-events-none">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="w-full max-w-2xl relative mt-[35vh] sm:mt-[40vh] pointer-events-auto"
-        >
-          {/* Search Mode Tabs */}
-          <div className="flex items-center gap-2 mb-4 ml-2">
+          {/* Search Mode Toggles */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex items-center gap-2 mb-4 relative z-20 -translate-y-[250px]"
+          >
             <button
-              onClick={() => { setSearchMode('traditional'); setSearchTerm(''); }}
+              onClick={() => setSearchMode('standard')}
               className={cn(
-                "px-6 py-2.5 rounded-t-xl text-[10px] font-black uppercase tracking-widest transition-all glass-effect flex items-center gap-2",
-                searchMode === 'traditional'
-                  ? "bg-white text-[#1F3A5F] shadow-[0_-4px_20px_rgba(255,255,255,0.2)]"
-                  : "bg-black/40 text-white/60 hover:text-white"
+                "px-6 py-2.5 rounded-xl backdrop-blur-md border transition-all flex items-center gap-2 text-xs font-bold tracking-widest uppercase",
+                searchMode === 'standard'
+                  ? "bg-white border-white text-[#1A2B49] shadow-xl"
+                  : "bg-black/40 border-white/20 text-white/70 hover:bg-black/60"
               )}
             >
-              <MapPin className={cn("w-3 h-3", searchMode === 'traditional' ? "text-[#C5A059]" : "text-white/40")} />
+              <Search className={cn("w-3.5 h-3.5", searchMode === 'standard' ? "text-[#4CAF50]" : "text-white/70")} />
               Standard
             </button>
             <button
-              onClick={() => { setSearchMode('ai'); setSearchTerm(''); }}
+              onClick={() => setSearchMode('ai')}
               className={cn(
-                "px-6 py-2.5 rounded-t-xl text-[10px] font-black uppercase tracking-widest transition-all glass-effect flex items-center gap-2 relative overflow-hidden group",
+                "px-6 py-2.5 rounded-xl backdrop-blur-md border transition-all flex items-center gap-2 text-xs font-bold tracking-widest uppercase",
                 searchMode === 'ai'
-                  ? "bg-white text-[#1F3A5F] shadow-[0_-4px_20px_rgba(197,160,89,0.3)]"
-                  : "bg-black/40 text-white/60 hover:text-white grayscale"
+                  ? "bg-white border-white text-[#1A2B49] shadow-xl"
+                  : "bg-black/40 border-white/20 text-white/70 hover:bg-black/60"
               )}
             >
-              {searchMode === 'ai' && (
-                <motion.div
-                  layoutId="ai-glow"
-                  className="absolute inset-0 bg-gradient-to-r from-[#C5A059]/10 via-transparent to-[#C5A059]/10"
-                  animate={{ x: ['-100%', '100%'] }}
-                  transition={{ repeat: Infinity, duration: 2, ease: 'linear' }}
-                />
-              )}
-              <Sparkles className={cn("w-3 h-3", searchMode === 'ai' ? "text-[#C5A059]" : "text-white/40")} />
+              <Sparkles className={cn("w-3.5 h-3.5", searchMode === 'ai' ? "text-[#4CAF50]" : "text-white/70")} />
               AI Finder
-              <span className="ml-1 px-1 py-0.5 bg-[#C5A059] text-white text-[7px] rounded-sm font-bold flex items-center">
-                BETA
+              <span className="bg-[#4CAF50]/20 text-[#4CAF50] text-[8px] px-1.5 py-0.5 rounded-full ml-1">BETA</span>
+            </button>
+          </motion.div>
+
+          {/* Search Bar - Glassmorphism style */}
+          <motion.form
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            onSubmit={handleSearch}
+            className="w-full max-w-[700px] bg-white/20 backdrop-blur-md rounded-2xl p-2.5 shadow-2xl border border-white/30 flex items-center relative z-20 -translate-y-[250px]"
+          >
+            <div className="flex-1 flex items-center px-4 sm:px-6 gap-4">
+              {searchMode === 'ai' ? (
+                <Sparkles className="w-5 h-5 text-[#4CAF50]/60" />
+              ) : (
+                <Search className="w-5 h-5 text-[#4CAF50]/60" />
+              )}
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder={searchMode === 'ai'
+                  ? "Describe your dream home (e.g. '3 BHK near the temple')..."
+                  : "Search by location, project or property name..."
+                }
+                className="w-full bg-transparent border-none py-5 text-black font-red-hat text-base placeholder:text-black/60 focus:outline-none focus:ring-0 font-bold"
+              />
+            </div>
+            <button
+              type="submit"
+              className="bg-white hover:bg-[#F0FDF4] text-[#1A2B49] px-6 py-4 rounded-xl font-black font-red-hat flex items-center gap-2 transition-all shadow-lg active:scale-95 group"
+            >
+              {searchMode === 'ai' ? (
+                <Sparkles className="w-4 h-4 text-[#4CAF50] group-hover:animate-pulse" />
+              ) : (
+                <Search className="w-4 h-4 text-[#4CAF50]" />
+              )}
+              <span className="tracking-widest uppercase text-[10px]">
+                {searchMode === 'ai' ? 'Magic Search' : 'Search'}
               </span>
             </button>
-          </div>
+          </motion.form>
 
-          {/* Search Form */}
-          <div className="relative">
-            <AnimatePresence mode="wait">
-              {searchMode === 'ai' && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  className="absolute -inset-1 blur-xl bg-gradient-to-r from-[#C5A059]/40 via-[#B89345]/20 to-[#C5A059]/40 rounded-2xl z-[-1]"
-                />
-              )}
-            </AnimatePresence>
-
-            <form
-              onSubmit={handleSearch}
-              className={cn(
-                "group relative flex flex-col sm:flex-row items-stretch sm:items-center bg-white/20 backdrop-blur-xl border p-2 rounded-2xl shadow-3xl transition-all duration-500",
-                searchMode === 'ai' ? "border-[#C5A059]/50 shadow-[#C5A059]/10" : "border-white/30 hover:border-white/50"
-              )}
-            >
-              <div className="flex-1 flex items-center gap-4 px-4 sm:px-6">
-                {searchMode === 'traditional' ? (
-                  <Search className="w-5 h-5 text-white/90 group-focus-within:text-white transition-colors" />
-                ) : (
-                  <Zap className="w-5 h-5 text-[#C5A059] animate-pulse" />
-                )}
-                <input
-                  type="text"
-                  placeholder={searchMode === 'traditional'
-                    ? "Search city, project name, or property type..."
-                    : "Describe your dream home (e.g. '3 BHK near the temple under 1 Cr')..."}
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-transparent border-none py-4 sm:py-5 font-red-hat text-sm sm:text-base text-white placeholder:text-white/70 focus:outline-none focus:ring-0"
-                />
-              </div>
+          {/* Try This Tags */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex flex-wrap items-center justify-center gap-3 -mt-[234px] mb-12 relative z-10"
+          >
+            <span className="text-white/60 text-[10px] font-bold uppercase tracking-widest mr-2">Try this:</span>
+            {['3 BHK under 50 Lakhs', 'Villa near Bus Stand', 'House in Model Town', 'Plot for investment'].map((tag) => (
               <button
-                type="submit"
-                className={cn(
-                  "font-red-hat text-[10px] sm:text-xs font-black uppercase tracking-widest px-5 sm:px-9 py-2.5 sm:py-3.5 rounded-xl transition-all duration-500 shadow-xl active:scale-95 flex items-center justify-center gap-2 mt-3 sm:mt-0",
-                  searchMode === 'ai'
-                    ? "bg-white text-[#1F3A5F] hover:bg-[#FAF8F4]"
-                    : "bg-white text-[#1F3A5F] hover:bg-[#FAF8F4]"
-                )}
+                key={tag}
+                onClick={() => setSearchTerm(tag)}
+                className="px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold hover:bg-white hover:border-[#4CAF50] hover:text-[#4CAF50] transition-all"
               >
-                {searchMode === 'ai' && <Sparkles className="w-3.5 h-3.5" />}
-                {searchMode === 'ai' ? 'Magic Search' : 'Discover'}
-              </button>
-            </form>
-          </div>
-
-          {/* Quick Suggestions */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
-            <p className="font-red-hat text-[9px] text-[#C5A059] font-black uppercase tracking-[3px] mr-2 drop-shadow-md">
-              Try This:
-            </p>
-            {suggestions[searchMode].map(item => (
-              <button
-                key={item}
-                onClick={() => { setSearchTerm(item); }}
-                className="font-red-hat text-[10px] text-white hover:text-[#1C1B1A] bg-white/5 hover:bg-white px-5 py-2 rounded-full border border-white/20 transition-all font-bold backdrop-blur-md shadow-lg"
-              >
-                {item}
+                {tag}
               </button>
             ))}
-          </div>
-        </motion.div>
-      </div>
+          </motion.div>
 
-      {/* Floating Scroll Indicator */}
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40 z-30 pointer-events-none"
-      >
-        <div className="w-[1px] h-14 bg-[#C5A059]" />
-        <span className="font-red-hat text-[8px] text-[#C5A059] font-black uppercase tracking-[5px] rotate-90 translate-y-10">
-          Scroll
-        </span>
-      </motion.div>
+          {/* Features Banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="w-full bg-white rounded-3xl p-6 sm:pb-8 shadow-[0_8px_40px_rgb(0,0,0,0.06)] border border-gray-50 relative z-10"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6 lg:divide-x divide-gray-100">
+
+              <div className="flex items-center gap-4 justify-start sm:justify-center lg:justify-start px-2 lg:px-6">
+                <div className="w-12 h-12 rounded-full bg-[#4CAF50]/10 flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-6 h-6 text-[#4CAF50]" />
+                </div>
+                <div>
+                  <h4 className="font-fraunces font-bold text-[#1A2B49] text-base sm:text-[17px]">Verified Properties</h4>
+                  <p className="font-red-hat text-xs sm:text-sm text-[#4B5563] mt-1">100% Verified Listings</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 justify-start sm:justify-center lg:justify-start px-2 lg:px-6">
+                <div className="w-12 h-12 rounded-full bg-[#4CAF50]/10 flex items-center justify-center shrink-0">
+                  <UserCheck className="w-6 h-6 text-[#4CAF50]" />
+                </div>
+                <div>
+                  <h4 className="font-fraunces font-bold text-[#1A2B49] text-base sm:text-[17px]">Loan Assistance</h4>
+                  <p className="font-red-hat text-xs sm:text-sm text-[#4B5563] mt-1">Easy Home Loans</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 justify-start sm:justify-center lg:justify-start px-2 lg:px-6">
+                <div className="w-12 h-12 rounded-full bg-[#4CAF50]/10 flex items-center justify-center shrink-0">
+                  <FileCheck className="w-6 h-6 text-[#4CAF50]" />
+                </div>
+                <div>
+                  <h4 className="font-fraunces font-bold text-[#1A2B49] text-base sm:text-[17px]">Legal Checked</h4>
+                  <p className="font-red-hat text-xs sm:text-sm text-[#4B5563] mt-1">Secure & Transparent</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 justify-start sm:justify-center lg:justify-start px-2 lg:px-6">
+                <div className="w-12 h-12 rounded-full bg-[#4CAF50]/10 flex items-center justify-center shrink-0">
+                  <Wallet className="w-6 h-6 text-[#4CAF50]" />
+                </div>
+                <div>
+                  <h4 className="font-fraunces font-bold text-[#1A2B49] text-base sm:text-[17px]">0 Down Payment</h4>
+                  <p className="font-red-hat text-xs sm:text-sm text-[#4B5563] mt-1">Select Properties</p>
+                </div>
+              </div>
+
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
 
     </section>
   );

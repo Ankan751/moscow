@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for Hanumant Properties
+about: Suggest an idea for Get A Dream Home
 title: "[FEATURE] "
 labels: enhancement
 assignees: ''

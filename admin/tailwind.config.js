@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Hanumant Properties Design System
+        // Get A Dream Home Design System
         cream: {
           DEFAULT: '#FAF8F4',
           50: '#FDFCFA',

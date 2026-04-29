@@ -1,11 +1,13 @@
 @custom-variant dark (&:is(.dark *));
 
-/* Hanumant Properties Luxury Design System */
+/* Get A Dream Home Luxury Design System */
 :root {
-  /* Luxury Gold Palette */
-  --gold-main: #C9A35A;
-  --gold-hover: #B89345;
-  --gold-light: #E0C27A;
+  /* Luxury Green Palette */
+  --gold-main: #4CAF50;
+  --gold-hover: #43a047;
+  --gold-light: #81c784;
+  --gold-400: #4CAF50;
+  --gold-900: #1b5e20;
 
   /* Luxury Navy Palette */
   --navy-main: #1F3A5F;
@@ -201,7 +203,7 @@
   }
 
   /**
-  * Hanumant Properties Typography System
+  * Get A Dream Home Typography System
   * Headings use Fraunces (elegant serif)
   * Subheadings use Syne (geometric sans)
   * Body text uses Red Hat Display (humanist sans)
@@ -272,7 +274,7 @@
   .font-playfair {
     font-family: var(--font-playfair);
   }
-  
+
   .font-fraunces {
     font-family: var(--font-fraunces);
   }
